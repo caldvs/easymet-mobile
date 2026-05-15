@@ -159,67 +159,6 @@ The journey planner finds the single-line route between any two stations, then d
 
 Data lives on the **TfGM Developer API** — Metrolinks (live tram positions) and Travel Alerts (disruptions). Station geometry comes from the TfGM stops file, supplemented with Wikipedia for friendlier display names.
 
-The app ships with a hand-rolled **soft-UI component kit** at `src/components/soft/` — 27 atoms, three tiers, shared interaction primitives. See "Design system" below.
-
 </td>
 </tr>
 </table>
-
----
-
-## Design system
-
-<details>
-<summary><strong>27 atoms across three tiers, plus a few EasyMet-specific gap-fillers.</strong></summary>
-
-| Tier | Atoms |
-| :-- | :-- |
-| Foundation | `SoftPill` · `SoftCard` · `SoftIcon` · `SoftMenu` · `IPhoneFrame` · interaction primitives (`pressFeedback`, `minTouch`) · tone tokens |
-| Tier 1 | `Button` · `TextField` · `Switch` · `Checkbox` · `Radio` · `Avatar` · `SoftModal` · `SegmentedControl` |
-| Tier 2 | `Banner` · `Toast` · `Skeleton` · `Spinner` · `Progress` · `EmptyState` · `ListRow` + `ListRowGroup` |
-| Tier 3 | `Tabs` · `Accordion` · `AvatarGroup` · `Slider` · `DatePicker` |
-| EasyMet gap-fillers | `BottomTabBar` · `Pill` · `Refreshable` |
-
-Shared primitives every atom uses:
-- `pressFeedback({ pressed })` — a subtle scale + opacity dip on any Pressable.
-- `minTouch` (44pt native, 28pt web) — invisible Pressable wrappers around small glyphs so the touch target is always thumb-safe.
-- A semantic tone palette (`accent` / `success` / `warning` / `danger` / `neutral`) rather than ad-hoc colours.
-
-Notable atoms:
-- **`Stepper`** renders compact stacked chevrons on web but bumps to two ≥44pt round buttons on native — same component, platform-appropriate layout.
-- **`SoftModal`** consolidates four hand-rolled bottom-sheet implementations into one chassis (~430 LOC removed).
-- **`SoftIcon`** ships 40+ inline-SVG glyphs — no `@expo/vector-icons` asset loading, recolour just works.
-
-</details>
-
----
-
-## Running it
-
-```bash
-npm install
-npm run ios          # iOS simulator
-npm run android      # Android emulator
-npm run web          # Expo Web dev server
-npm run storybook    # Component library — http://localhost:6006
-npm run test         # Vitest unit tests
-npm run test:e2e     # Playwright against the Expo Web build
-```
-
----
-
-## Notable engineering moments
-
-- **Hook-order bug in `JourneyScreen`** — a `useCallback` declared after an early `return null` worked on first render but crashed once the journey arrived asynchronously. Fixed by hoisting all derived values + the callback above the early return; safe defaults handle the no-journey case.
-- **Async-storage race in seeded Storybook stories** — seeding favourites in a `useEffect` raced the `AsyncStorage.getItem` load inside `FavouritesProvider`, silently overwriting the seed. Fixed by gating seeders on the context's `loaded` flag.
-- **Vite + Expo native modules** — `expo-modules-core` imports `TurboModuleRegistry` from `react-native`, which `react-native-web` doesn't expose. Storybook needed Vite aliases that stub `expo-modules-core` / `expo-haptics` / `expo-location` / `expo-linear-gradient` so the design-system stories can render on the web.
-- **Asset-heavy icon fonts** — `@expo/vector-icons` requires asset plugins to bundle through Vite. The soft kit's `SoftIcon` ships its own SVG path library so the Storybook surface has no font dependency.
-
----
-
-<div align="center">
-
-Built by [Callum Davies](mailto:dvscllm@gmail.com).  
-Live TfGM data · 99 stations · 8 Metrolink corridors · soft-UI from scratch.
-
-</div>
