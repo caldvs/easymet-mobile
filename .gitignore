@@ -50,7 +50,6 @@ test-results/
 HIRax*.jpg
 assets/*.zip
 designs/
-docs/
 
 # Swift Package Manager build artefacts (the LiveActivityViews package)
 **/.build/
