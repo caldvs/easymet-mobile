@@ -1,6 +1,7 @@
 import { useRouter } from "expo-router";
 import { useCallback, useEffect } from "react";
 import { Pressable, ScrollView, Share, Text, View } from "react-native";
+import { LiquidGlassBadge } from "../src/components/soft/LiquidGlassBadge";
 import { SoftCard } from "../src/components/soft/SoftCard";
 import { Icon } from "../src/components/Icon";
 import { JourneyLadder } from "../src/components/JourneyLadder";
@@ -154,24 +155,13 @@ export default function JourneyScreen() {
 
       <ScrollView contentContainerStyle={{ paddingBottom: 40 }}>
         <View style={{ paddingHorizontal: 20, paddingTop: 8, paddingBottom: 16 }}>
-          <View style={{ flexDirection: "row", alignItems: "center", gap: 8, marginBottom: 6 }}>
-            <View
-              style={{
-                width: 8,
-                height: 8,
-                borderRadius: 4,
-                backgroundColor: lineColour,
-              }}
-            />
-            <Text
-              style={{
-                fontSize: softUI ? 12 : 11,
-                color: colours.fgSubtle,
-                ...labelStyle,
-              }}
-            >
-              {lineId} line journey
-            </Text>
+          {/* Live-journey eyebrow: a SwiftUI-hosted Liquid Glass badge
+              on iOS 26+, gracefully degrading to expo-glass-effect's
+              GlassView on older iOS, and a translucent View on web.
+              The badge sits in place of the previous flat dot+caption
+              so it reads as a status token, not a section label. */}
+          <View style={{ marginBottom: 10, flexDirection: "row" }}>
+            <LiquidGlassBadge label={`${lineId} line · Live`} tone="accent" />
           </View>
           <Text
             style={{
