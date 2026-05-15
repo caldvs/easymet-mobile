@@ -39,31 +39,36 @@ export function TabBar() {
       ? "plan"
       : "home";
 
+  // The fade strip sits ABOVE the pill and ends flush at the pill's top
+  // edge — no blue extends below the tab bar. Pill height is ~58pt (icon
+  // + 12pt vertical padding + 1pt border), so the strip's bottom edge
+  // lives at `pillBottomOffset + pillHeight` from the screen bottom.
+  const pillBottomOffset = Math.max(insets.bottom, 8) + 8;
+  const PILL_HEIGHT = 58;
+  const FADE_HEIGHT = 96;
+
   return (
     <>
-      {/* Soft fade-blur strip at the bottom of the page. Sits BEHIND the
-          floating pill (lower zIndex) and outside its bounding box so it
-          can span edge-to-edge while the pill stays a discrete shape.
-          Two stacked layers: a low-intensity BlurView for the depth, and
-          a transparent-to-canvas LinearGradient that softens the top
-          edge into the page so the blur strip doesn't read as a hard
-          band. The whole thing extends below the home-indicator inset
-          so it visually anchors to the bottom of the screen. */}
+      {/* Soft fade strip — transparent at top, fully canvas-tinted at the
+          bottom edge where it kisses the top of the floating pill. No
+          hard bottom line: the strip terminates exactly at the pill's
+          top, so the blur and the chrome read as one continuous
+          surface. */}
       <View
         pointerEvents="none"
         style={{
           position: "absolute",
           left: 0,
           right: 0,
-          bottom: 0,
-          height: 130,
+          bottom: pillBottomOffset + PILL_HEIGHT,
+          height: FADE_HEIGHT,
           overflow: "hidden",
         }}
       >
-        <BlurView intensity={28} tint="light" style={{ flex: 1 }} />
+        <BlurView intensity={32} tint="light" style={{ flex: 1 }} />
         <LinearGradient
-          colors={["rgba(244,244,251,0)", "rgba(244,244,251,0.6)"]}
-          style={{ position: "absolute", left: 0, right: 0, top: 0, height: 60 }}
+          colors={["rgba(244,244,251,0)", "rgba(244,244,251,0.85)"]}
+          style={{ position: "absolute", left: 0, right: 0, top: 0, bottom: 0 }}
         />
       </View>
 

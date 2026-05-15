@@ -1,30 +1,34 @@
-import { Tabs } from "expo-router";
-import { TabBar } from "../../src/components/TabBar";
+import { NativeTabs } from "expo-router/unstable-native-tabs";
 
-// Real Tabs navigator (backed by UITabBarController on iOS) so the three
-// peer screens stay mounted across switches — scroll positions persist,
-// no re-render flash, and the swap is instant. We pass our own Liquid
-// Glass `TabBar` as the visual; the navigator handles the lifecycle.
+// iOS 26 native tab bar via UITabBarController in Liquid-Glass mode.
+// Expo Router renders this through SwiftUI on the device, so the Liquid
+// Glass material, content blur, dynamic compression, and safe-area
+// behaviour all come for free — none of it lives in JS.
+//
+// Each trigger maps to a file under app/(tabs)/. SF Symbols carry the
+// iOS glyph; the `md` prop carries the Material equivalent for Android.
+// The hidden `pinned` file from the previous layout keeps its `href:
+// null` semantics implicitly here — files without a Trigger don't get a
+// tab slot, but stay routable.
 export default function TabsLayout() {
   return (
-    <Tabs
-      tabBar={() => <TabBar />}
-      screenOptions={{
-        headerShown: false,
-        sceneStyle: { backgroundColor: "transparent" },
-        // Lazy mount (default) — keeps cold-start fast. Once a tab is
-        // mounted it stays mounted, so subsequent switches are still
-        // instant. The first-switch-to-each-tab cost is only meaningful
-        // in dev mode; production builds (Hermes) make it imperceptible.
-      }}
-    >
-      <Tabs.Screen name="index" />
-      <Tabs.Screen name="nearby" />
-      <Tabs.Screen name="plan" />
-      <Tabs.Screen name="browse" />
-      {/* `pinned` content is now the Home screen; the file stays as an
-          unreachable redirect to keep imports stable. */}
-      <Tabs.Screen name="pinned" options={{ href: null }} />
-    </Tabs>
+    <NativeTabs>
+      <NativeTabs.Trigger name="index">
+        <NativeTabs.Trigger.Label>Home</NativeTabs.Trigger.Label>
+        <NativeTabs.Trigger.Icon sf="house.fill" md="home" />
+      </NativeTabs.Trigger>
+      <NativeTabs.Trigger name="nearby">
+        <NativeTabs.Trigger.Label>Nearby</NativeTabs.Trigger.Label>
+        <NativeTabs.Trigger.Icon sf="location.fill" md="location_on" />
+      </NativeTabs.Trigger>
+      <NativeTabs.Trigger name="plan">
+        <NativeTabs.Trigger.Label>Plan</NativeTabs.Trigger.Label>
+        <NativeTabs.Trigger.Icon sf="paperplane.fill" md="send" />
+      </NativeTabs.Trigger>
+      <NativeTabs.Trigger name="browse">
+        <NativeTabs.Trigger.Label>Browse</NativeTabs.Trigger.Label>
+        <NativeTabs.Trigger.Icon sf="line.3.horizontal.circle.fill" md="grid_view" />
+      </NativeTabs.Trigger>
+    </NativeTabs>
   );
 }
