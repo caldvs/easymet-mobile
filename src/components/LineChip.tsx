@@ -15,7 +15,9 @@ export function LineChip({ line }: { line: string }) {
         paddingVertical: 4,
         paddingHorizontal: 10,
         borderRadius: 999,
-        backgroundColor: `${c.colour}1F`,
+        // Fill alpha bumped from 0x1F (~12%) to 0x26 (~15%) so the corridor
+        // tint reads as a chip surface rather than a hint over the canvas.
+        backgroundColor: `${c.colour}26`,
         borderWidth: 1,
         borderColor: `${c.colour}55`,
       }}

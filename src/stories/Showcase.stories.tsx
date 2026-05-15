@@ -1,6 +1,7 @@
 // Marketing-quality showcase: every app screen rendered inside an iPhone
-// frame, seeded so the screenshots look populated rather than empty. These
-// stories are what the README's product-page imagery is captured from.
+// frame, with the floating Liquid-Glass tab bar overlaid so the screenshots
+// match what the user actually sees on device. These stories are what the
+// README's product-page imagery is captured from.
 
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useEffect } from "react";
@@ -14,6 +15,7 @@ import PinnedScreen from "../../app/(tabs)/pinned";
 import PlanScreen from "../../app/(tabs)/plan";
 import StationDetailScreen from "../../app/station/[code]";
 import { IPhoneFrame } from "../components/soft/IPhoneFrame";
+import { TabBar } from "../components/TabBar";
 import { findRoute } from "../lib/journey";
 import { useJourney } from "../lib/JourneyContext";
 import { useUser } from "../lib/UserContext";
@@ -27,8 +29,6 @@ const meta: Meta = {
   },
   decorators: [
     (Story) => (
-      // Soft canvas backdrop matches the README — phone sits on a pale
-      // lavender gradient so the screenshots compose cleanly.
       <View
         style={{
           padding: 32,
@@ -44,17 +44,33 @@ const meta: Meta = {
 };
 export default meta;
 
-// Render a screen inside the iPhone frame at its native logical size.
-function Phone({ children }: { children: React.ReactNode }) {
+// Phone wrapper that also seeds the TabBar's active pathname. Screens
+// rendered through this wrapper get the live floating tab bar on top —
+// matching how the production app composes them via `(tabs)/_layout.tsx`.
+function Phone({
+  children,
+  pathname = "/",
+  showTabBar = true,
+}: {
+  children: React.ReactNode;
+  pathname?: string;
+  showTabBar?: boolean;
+}) {
+  // The TabBar reads usePathname() from the expo-router stub which in
+  // Storybook reads from this global. Set it on every render so two
+  // showcase stories side-by-side don't fight over the value.
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (globalThis as any).__SB_PATHNAME__ = pathname;
   return (
     <IPhoneFrame screenWidth={393} screenHeight={852}>
-      {children}
+      <View style={{ flex: 1 }}>
+        {children}
+        {showTabBar && <TabBar />}
+      </View>
     </IPhoneFrame>
   );
 }
 
-// Seed user identity + favourite stations so the Home screen is populated
-// for the hero shot. Runs once on mount after AsyncStorage has resolved.
 function SeedFullState({
   name,
   favourites,
@@ -64,8 +80,6 @@ function SeedFullState({
 }) {
   const { setName, loaded: userLoaded } = useUser();
   const { favourites: have, toggle, loaded: favsLoaded } = useFavourites();
-  // Gate both seeders on the contexts' `loaded` flags. Otherwise
-  // AsyncStorage's resolved value races and overwrites the seed.
   useEffect(() => {
     if (!userLoaded) return;
     setName(name);
@@ -91,7 +105,7 @@ function SeedJourney({ fromCode, toCode }: { fromCode: string; toCode: string })
 export const Home: StoryObj = {
   name: "Home",
   render: () => (
-    <Phone>
+    <Phone pathname="/">
       <SeedFullState name="Callum" favourites={["SPS", "CNK", "ALT"]} />
       <HomeScreen />
     </Phone>
@@ -101,7 +115,7 @@ export const Home: StoryObj = {
 export const Plan: StoryObj = {
   name: "Plan",
   render: () => (
-    <Phone>
+    <Phone pathname="/plan">
       <PlanScreen />
     </Phone>
   ),
@@ -110,7 +124,7 @@ export const Plan: StoryObj = {
 export const Browse: StoryObj = {
   name: "Browse",
   render: () => (
-    <Phone>
+    <Phone pathname="/browse">
       <BrowseScreen />
     </Phone>
   ),
@@ -119,17 +133,19 @@ export const Browse: StoryObj = {
 export const Pinned: StoryObj = {
   name: "Pinned",
   render: () => (
-    <Phone>
+    <Phone pathname="/">
       <SeedFullState name="Callum" favourites={["SPS", "CNK", "ALT", "TRB"]} />
       <PinnedScreen />
     </Phone>
   ),
 };
 
+// Journey + Station detail + Announcements are pushed screens (not tabs),
+// so they hide the tab bar — matches how iOS presents detail flows.
 export const Journey: StoryObj = {
   name: "Journey",
   render: () => (
-    <Phone>
+    <Phone pathname="/" showTabBar={false}>
       <SeedJourney fromCode="SPS" toCode="ALT" />
       <JourneyScreen />
     </Phone>
@@ -140,7 +156,7 @@ export const StationDetail: StoryObj = {
   name: "Station detail",
   parameters: { routeParams: { code: "AIR" } },
   render: () => (
-    <Phone>
+    <Phone pathname="/" showTabBar={false}>
       <StationDetailScreen />
     </Phone>
   ),
@@ -149,7 +165,7 @@ export const StationDetail: StoryObj = {
 export const Announcements: StoryObj = {
   name: "Announcements",
   render: () => (
-    <Phone>
+    <Phone pathname="/" showTabBar={false}>
       <AnnouncementsScreen />
     </Phone>
   ),
@@ -158,7 +174,7 @@ export const Announcements: StoryObj = {
 export const Nearby: StoryObj = {
   name: "Nearby",
   render: () => (
-    <Phone>
+    <Phone pathname="/nearby">
       <NearbyScreen />
     </Phone>
   ),

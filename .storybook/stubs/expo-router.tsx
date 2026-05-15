@@ -22,6 +22,14 @@ export function useSegments() {
   return [] as string[];
 }
 
+// Showcase stories set `globalThis.__SB_PATHNAME__` so the floating
+// TabBar can pick up the right "active tab" without running expo-router
+// itself. Defaults to "/" so screens that don't bother set Home active.
+export function usePathname(): string {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return ((globalThis as any).__SB_PATHNAME__ ?? "/") as string;
+}
+
 export function useLocalSearchParams<T = Record<string, string>>(): T {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return ((globalThis as any).__SB_ROUTE_PARAMS__ ?? {}) as T;
