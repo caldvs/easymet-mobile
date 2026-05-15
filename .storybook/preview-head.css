@@ -1,0 +1,40 @@
+/* Register the exact font-family names used by the app at runtime (the
+   names @expo-google-fonts produces). RN-Web emits these names verbatim in
+   the inline `font-family` style, so the browser resolves to these
+   @font-face rules. The TTF files are copied from node_modules/@expo-google-fonts
+   into .storybook/public/fonts at install time. */
+
+@font-face {
+  font-family: "DMSans_400Regular";
+  src: url("/fonts/DMSans_400Regular.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "DMSans_500Medium";
+  src: url("/fonts/DMSans_500Medium.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "DMSans_600SemiBold";
+  src: url("/fonts/DMSans_600SemiBold.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "BricolageGrotesque_600SemiBold";
+  src: url("/fonts/BricolageGrotesque_600SemiBold.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "BricolageGrotesque_700Bold";
+  src: url("/fonts/BricolageGrotesque_700Bold.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrainsMono_500Medium";
+  src: url("/fonts/JetBrainsMono_500Medium.ttf") format("truetype");
+  font-display: swap;
+}
+
+body {
+  font-family: "DMSans_400Regular", system-ui, sans-serif;
+}

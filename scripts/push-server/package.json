@@ -1,0 +1,11 @@
+{
+  "name": "easymet-push-server",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local push server that drives Live Activity updates via simctl push (simulator) or APNs HTTP/2 (future, real device).",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {}
+}

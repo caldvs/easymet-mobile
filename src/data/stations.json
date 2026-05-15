@@ -1,0 +1,1359 @@
+{
+  "generatedAt": "2026-05-13T11:35:51.462Z",
+  "source": "https://easymet-edge.dvscllm.workers.dev",
+  "stations": [
+    {
+      "code": "ABM",
+      "name": "Abraham Moss",
+      "atcoCode": "9400ZZMAABM2",
+      "corridor": "Bury",
+      "platforms": 2,
+      "zone": 2,
+      "lines": [
+        "Bury"
+      ],
+      "lat": 53.5106676302,
+      "lng": -2.2357186392
+    },
+    {
+      "code": "ALT",
+      "name": "Altrincham",
+      "atcoCode": "9400ZZMAALT1",
+      "corridor": "Altrincham",
+      "platforms": 2,
+      "zone": 4,
+      "lines": [
+        "Altrincham"
+      ],
+      "lat": 53.3872091274,
+      "lng": -2.3475158907
+    },
+    {
+      "code": "ANC",
+      "name": "Anchorage",
+      "atcoCode": "9400ZZMAANC2",
+      "corridor": "Eccles",
+      "platforms": 2,
+      "zone": 2,
+      "lines": [
+        "Eccles"
+      ],
+      "lat": 53.4743378737,
+      "lng": -2.2860274637
+    },
+    {
+      "code": "ASM",
+      "name": "Ashton Moss",
+      "atcoCode": "9400ZZMAAMO1",
+      "corridor": "East Manchester",
+      "platforms": 2,
+      "zone": 3,
+      "lines": [
+        "Ashton"
+      ],
+      "lat": 53.4836767552,
+      "lng": -2.1219229142
+    },
+    {
+      "code": "ASW",
+      "name": "Ashton West",
+      "atcoCode": "9400ZZMAAWT1",
+      "corridor": "East Manchester",
+      "platforms": 2,
+      "zone": 3,
+      "lines": [
+        "Ashton"
+      ],
+      "lat": 53.490250128,
+      "lng": -2.109721205
+    },
+    {
+      "code": "ASH",
+      "name": "Ashton-Under-Lyne",
+      "atcoCode": "9400ZZMAAUL1",
+      "corridor": "East Manchester",
+      "platforms": 4,
+      "zone": 3,
+      "lines": [
+        "Ashton"
+      ],
+      "lat": 53.4903504854,
+      "lng": -2.0980345788
+    },
+    {
+      "code": "AUD",
+      "name": "Audenshaw",
+      "atcoCode": "9400ZZMAAUD1",
+      "corridor": "East Manchester",
+      "platforms": 2,
+      "zone": 3,
+      "lines": [
+        "Ashton"
+      ],
+      "lat": 53.4782093022,
+      "lng": -2.1309653768
+    },
+    {
+      "code": "BAG",
+      "name": "Baguley",
+      "atcoCode": "9400ZZMABAG1",
+      "corridor": "Airport",
+      "platforms": 2,
+      "zone": 3,
+      "lines": [
+        "Airport"
+      ],
+      "lat": 53.3968492434,
+      "lng": -2.2926735303
+    },
+    {
+      "code": "BMR",
+      "name": "Barlow Moor Road",
+      "atcoCode": "9400ZZMABAR1",
+      "corridor": "Airport",
+      "platforms": 2,
+      "zone": 2,
+      "lines": [
+        "Airport"
+      ],
+      "lat": 53.4328481051,
+      "lng": -2.269276432
+    },
+    {
+      "code": "BCH",
+      "name": "Benchill",
+      "atcoCode": "9400ZZMABLL1",
+      "corridor": "Airport",
+      "platforms": 2,
+      "zone": 4,
+      "lines": [
+        "Airport"
+      ],
+      "lat": 53.3872398523,
+      "lng": -2.2562153902
+    },
+    {
+      "code": "BOB",
+      "name": "Besses O’ Th’ Barn",
+      "atcoCode": "9400ZZMABOB2",
+      "corridor": "Bury",
+      "platforms": 2,
+      "zone": 3,
+      "lines": [
+        "Bury"
+      ],
+      "lat": 53.5420651307,
+      "lng": -2.2861234691
+    },
+    {
+      "code": "BKV",
+      "name": "Bowker Vale",
+      "atcoCode": "9400ZZMABOW2",
+      "corridor": "Bury",
+      "platforms": 2,
+      "zone": 2,
+      "lines": [
+        "Bury"
+      ],
+      "lat": 53.5248928945,
+      "lng": -2.2498954101
+    },
+    {
+      "code": "BDW",
+      "name": "Broadway",
+      "atcoCode": "9400ZZMABWY2",
+      "corridor": "Eccles",
+      "platforms": 2,
+      "zone": 2,
+      "lines": [
+        "Eccles"
+      ],
+      "lat": 53.4747951082,
+      "lng": -2.2949315704
+    },
+    {
+      "code": "BRK",
+      "name": "Brooklands",
+      "atcoCode": "9400ZZMABKS2",
+      "corridor": "Altrincham",
+      "platforms": 2,
+      "zone": 3,
+      "lines": [
+        "Altrincham"
+      ],
+      "lat": 53.4170730157,
+      "lng": -2.3260595267
+    },
+    {
+      "code": "BRT",
+      "name": "Burton Road",
+      "atcoCode": "9400ZZMABNR2",
+      "corridor": "South Manchester",
+      "platforms": 2,
+      "zone": 3,
+      "lines": [
+        "East Didsbury"
+      ],
+      "lat": 53.4291721195,
+      "lng": -2.2406360726
+    },
+    {
+      "code": "BRY",
+      "name": "Bury",
+      "atcoCode": "9400ZZMABUR2",
+      "corridor": "Bury",
+      "platforms": 2,
+      "zone": 4,
+      "lines": [
+        "Bury"
+      ],
+      "lat": 53.590958632,
+      "lng": -2.2970957346
+    },
+    {
+      "code": "CER",
+      "name": "Cemetery Road",
+      "atcoCode": "9400ZZMACEM1",
+      "corridor": "East Manchester",
+      "platforms": 2,
+      "zone": 3,
+      "lines": [
+        "Ashton"
+      ],
+      "lat": 53.4798803727,
+      "lng": -2.1550048902
+    },
+    {
+      "code": "CEP",
+      "name": "Central Park",
+      "atcoCode": "9400ZZMACTP2",
+      "corridor": "Oldham & Rochdale",
+      "platforms": 2,
+      "zone": 2,
+      "lines": [
+        "Rochdale"
+      ],
+      "lat": 53.5015926359,
+      "lng": -2.1991400887
+    },
+    {
+      "code": "CHO",
+      "name": "Chorlton",
+      "atcoCode": "9400ZZMACHO1",
+      "corridor": "South Manchester",
+      "platforms": 2,
+      "zone": 2,
+      "lines": [
+        "East Didsbury"
+      ],
+      "lat": 53.4428250722,
+      "lng": -2.2735081151
+    },
+    {
+      "code": "CLA",
+      "name": "Clayton Hall",
+      "atcoCode": "9400ZZMACLN2",
+      "corridor": "East Manchester",
+      "platforms": 3,
+      "zone": 2,
+      "lines": [
+        "Ashton"
+      ],
+      "lat": 53.4827941592,
+      "lng": -2.1823514852
+    },
+    {
+      "code": "CNK",
+      "name": "Cornbrook",
+      "atcoCode": "9400ZZMACRN1",
+      "corridor": "Eccles",
+      "platforms": 4,
+      "zone": 1,
+      "lines": [
+        "Altrincham",
+        "East Didsbury",
+        "Eccles",
+        "Airport",
+        "Trafford Park"
+      ],
+      "lat": 53.4700194787,
+      "lng": -2.2675495027
+    },
+    {
+      "code": "CRO",
+      "name": "Crossacres",
+      "atcoCode": "9400ZZMACSS1",
+      "corridor": "Airport",
+      "platforms": 2,
+      "zone": 4,
+      "lines": [
+        "Airport"
+      ],
+      "lat": 53.3833174666,
+      "lng": -2.2562644211
+    },
+    {
+      "code": "CRP",
+      "name": "Crumpsall",
+      "atcoCode": "9400ZZMACRU2",
+      "corridor": "Bury",
+      "platforms": 3,
+      "zone": 2,
+      "lines": [
+        "Bury"
+      ],
+      "lat": 53.5172931833,
+      "lng": -2.2410447161
+    },
+    {
+      "code": "DAN",
+      "name": "Dane Road",
+      "atcoCode": "9400ZZMADNE1",
+      "corridor": "Altrincham",
+      "platforms": 2,
+      "zone": 3,
+      "lines": [
+        "Altrincham"
+      ],
+      "lat": 53.4300039735,
+      "lng": -2.3116614149
+    },
+    {
+      "code": "GMX",
+      "name": "Deansgate - Castlefield",
+      "atcoCode": "9400ZZMAGMX3",
+      "corridor": "Altrincham",
+      "platforms": 3,
+      "zone": 1,
+      "lines": [
+        "Altrincham",
+        "Bury",
+        "Eccles",
+        "Airport",
+        "Trafford Park"
+      ],
+      "lat": 53.4747237826,
+      "lng": -2.2503454594
+    },
+    {
+      "code": "DER",
+      "name": "Derker",
+      "atcoCode": "9400ZZMADER1",
+      "corridor": "Oldham & Rochdale",
+      "platforms": 2,
+      "zone": 3,
+      "lines": [
+        "Rochdale"
+      ],
+      "lat": 53.5498235973,
+      "lng": -2.1016186463
+    },
+    {
+      "code": "DDV",
+      "name": "Didsbury Village",
+      "atcoCode": "9400ZZMADID2",
+      "corridor": "South Manchester",
+      "platforms": 2,
+      "zone": 3,
+      "lines": [
+        "East Didsbury"
+      ],
+      "lat": 53.4167534695,
+      "lng": -2.2285999437
+    },
+    {
+      "code": "DYL",
+      "name": "Droylsden",
+      "atcoCode": "9400ZZMADRO1",
+      "corridor": "East Manchester",
+      "platforms": 2,
+      "zone": 3,
+      "lines": [
+        "Ashton"
+      ],
+      "lat": 53.4794704547,
+      "lng": -2.1446657345
+    },
+    {
+      "code": "EDD",
+      "name": "East Didsbury",
+      "atcoCode": "9400ZZMAEDY2",
+      "corridor": "South Manchester",
+      "platforms": 4,
+      "zone": 3,
+      "lines": [
+        "East Didsbury"
+      ],
+      "lat": 53.4120746108,
+      "lng": -2.2172659574
+    },
+    {
+      "code": "ECC",
+      "name": "Eccles",
+      "atcoCode": "9400ZZMAECC1",
+      "corridor": "Eccles",
+      "platforms": 1,
+      "zone": 2,
+      "lines": [
+        "Eccles"
+      ],
+      "lat": 53.4829836037,
+      "lng": -2.3351657527
+    },
+    {
+      "code": "EDL",
+      "name": "Edge Lane",
+      "atcoCode": "9400ZZMAELN2",
+      "corridor": "East Manchester",
+      "platforms": 4,
+      "zone": 2,
+      "lines": [
+        "Ashton"
+      ],
+      "lat": 53.4808853353,
+      "lng": -2.1652927417
+    },
+    {
+      "code": "SPC",
+      "name": "Etihad Campus",
+      "atcoCode": "9400ZZMAECS2",
+      "corridor": "East Manchester",
+      "platforms": 4,
+      "zone": 2,
+      "lines": [
+        "Ashton"
+      ],
+      "lat": 53.48537388,
+      "lng": -2.2013834129
+    },
+    {
+      "code": "EXQ",
+      "name": "Exchange Quay",
+      "atcoCode": "9400ZZMAEXC2",
+      "corridor": "Eccles",
+      "platforms": 2,
+      "zone": 2,
+      "lines": [
+        "Eccles"
+      ],
+      "lat": 53.4676986039,
+      "lng": -2.2823433015
+    },
+    {
+      "code": "EXS",
+      "name": "Exchange Square",
+      "atcoCode": "9400ZZMAEXS2",
+      "corridor": "Eccles",
+      "platforms": 2,
+      "zone": 1,
+      "lines": [
+        "Bury",
+        "Rochdale"
+      ],
+      "lat": 53.4844652692,
+      "lng": -2.2426735994
+    },
+    {
+      "code": "FAL",
+      "name": "Failsworth",
+      "atcoCode": "9400ZZMAFWH1",
+      "corridor": "Oldham & Rochdale",
+      "platforms": 2,
+      "zone": 3,
+      "lines": [
+        "Rochdale"
+      ],
+      "lat": 53.5106281642,
+      "lng": -2.1629235996
+    },
+    {
+      "code": "FIR",
+      "name": "Firswood",
+      "atcoCode": "9400ZZMAFIR2",
+      "corridor": "South Manchester",
+      "platforms": 2,
+      "zone": 2,
+      "lines": [
+        "East Didsbury"
+      ],
+      "lat": 53.4512107555,
+      "lng": -2.2776764321
+    },
+    {
+      "code": "FRE",
+      "name": "Freehold",
+      "atcoCode": "9400ZZMAFRE1",
+      "corridor": "Oldham & Rochdale",
+      "platforms": 2,
+      "zone": 3,
+      "lines": [
+        "Rochdale"
+      ],
+      "lat": 53.5376871081,
+      "lng": -2.1380277899
+    },
+    {
+      "code": "HBC",
+      "name": "Harbour City",
+      "atcoCode": "9400ZZMAHCY2",
+      "corridor": "Eccles",
+      "platforms": 2,
+      "zone": 2,
+      "lines": [
+        "Eccles"
+      ],
+      "lat": 53.4741850056,
+      "lng": -2.2906199446
+    },
+    {
+      "code": "HPK",
+      "name": "Heaton Park",
+      "atcoCode": "9400ZZMAHEA1",
+      "corridor": "Bury",
+      "platforms": 2,
+      "zone": 3,
+      "lines": [
+        "Bury"
+      ],
+      "lat": 53.5305052393,
+      "lng": -2.2672470445
+    },
+    {
+      "code": "HOL",
+      "name": "Hollinwood",
+      "atcoCode": "9400ZZMAHOL1",
+      "corridor": "Oldham & Rochdale",
+      "platforms": 2,
+      "zone": 3,
+      "lines": [
+        "Rochdale"
+      ],
+      "lat": 53.5199984264,
+      "lng": -2.1473264614
+    },
+    {
+      "code": "HOT",
+      "name": "Holt Town",
+      "atcoCode": "9400ZZMAHTN1",
+      "corridor": "East Manchester",
+      "platforms": 2,
+      "zone": 2,
+      "lines": [
+        "Ashton"
+      ],
+      "lat": 53.4832805049,
+      "lng": -2.2120629808
+    },
+    {
+      "code": "IWM",
+      "name": "Imperial War Museum",
+      "atcoCode": "9400ZZMAIWM2",
+      "corridor": "Trafford Park",
+      "platforms": 2,
+      "zone": 2,
+      "lines": [
+        "Trafford Park"
+      ],
+      "lat": 53.4686012552,
+      "lng": -2.2967749705
+    },
+    {
+      "code": "KIN",
+      "name": "Kingsway Business Park",
+      "atcoCode": "9400ZZMAKNY1",
+      "corridor": "Oldham & Rochdale",
+      "platforms": 2,
+      "zone": 4,
+      "lines": [
+        "Rochdale"
+      ],
+      "lat": 53.6110951947,
+      "lng": -2.1237052529
+    },
+    {
+      "code": "LDW",
+      "name": "Ladywell",
+      "atcoCode": "9400ZZMALDY2",
+      "corridor": "Eccles",
+      "platforms": 2,
+      "zone": 2,
+      "lines": [
+        "Eccles"
+      ],
+      "lat": 53.4839997121,
+      "lng": -2.3266550151
+    },
+    {
+      "code": "LGW",
+      "name": "Langworthy",
+      "atcoCode": "9400ZZMALWY2",
+      "corridor": "Eccles",
+      "platforms": 2,
+      "zone": 2,
+      "lines": [
+        "Eccles"
+      ],
+      "lat": 53.4806439282,
+      "lng": -2.2961628569
+    },
+    {
+      "code": "AIR",
+      "name": "Manchester Airport",
+      "atcoCode": "9400ZZMAAIR1",
+      "corridor": "Airport",
+      "platforms": 2,
+      "zone": 4,
+      "lines": [
+        "Airport"
+      ],
+      "lat": 53.3653594952,
+      "lng": -2.2722561498
+    },
+    {
+      "code": "MKT",
+      "name": "Market Street",
+      "atcoCode": "9400ZZMAMKT2",
+      "corridor": "Bury",
+      "platforms": 2,
+      "zone": 1,
+      "lines": [
+        "Bury",
+        "Rochdale",
+        "East Didsbury",
+        "Ashton"
+      ],
+      "lat": 53.4819375024,
+      "lng": -2.238836318
+    },
+    {
+      "code": "MAR",
+      "name": "Martinscroft",
+      "atcoCode": "9400ZZMAMFT2",
+      "corridor": "Airport",
+      "platforms": 2,
+      "zone": 4,
+      "lines": [
+        "Airport"
+      ],
+      "lat": 53.3918700253,
+      "lng": -2.2797792265
+    },
+    {
+      "code": "MEC",
+      "name": "MediaCityUK",
+      "atcoCode": "9400ZZMAMCU1",
+      "corridor": "Eccles",
+      "platforms": 4,
+      "zone": 2,
+      "lines": [
+        "Eccles"
+      ],
+      "lat": 53.4721717265,
+      "lng": -2.2971112068
+    },
+    {
+      "code": "MIL",
+      "name": "Milnrow",
+      "atcoCode": "9400ZZMAMIL1",
+      "corridor": "Oldham & Rochdale",
+      "platforms": 2,
+      "zone": 4,
+      "lines": [
+        "Rochdale"
+      ],
+      "lat": 53.608122029,
+      "lng": -2.112073856
+    },
+    {
+      "code": "MON",
+      "name": "Monsall",
+      "atcoCode": "9400ZZMAMON1",
+      "corridor": "Oldham & Rochdale",
+      "platforms": 2,
+      "zone": 2,
+      "lines": [
+        "Rochdale"
+      ],
+      "lat": 53.501096583,
+      "lng": -2.2106544254
+    },
+    {
+      "code": "MRD",
+      "name": "Moor Road",
+      "atcoCode": "9400ZZMAMRD1",
+      "corridor": "Airport",
+      "platforms": 2,
+      "zone": 3,
+      "lines": [
+        "Airport"
+      ],
+      "lat": 53.4033107222,
+      "lng": -2.2951582047
+    },
+    {
+      "code": "NAV",
+      "name": "Navigation Road",
+      "atcoCode": "9400ZZMANAV1",
+      "corridor": "Altrincham",
+      "platforms": 2,
+      "zone": 4,
+      "lines": [
+        "Altrincham"
+      ],
+      "lat": 53.3957955321,
+      "lng": -2.3433163641
+    },
+    {
+      "code": "NIS",
+      "name": "New Islington",
+      "atcoCode": "9400ZZMANIS1",
+      "corridor": "East Manchester",
+      "platforms": 2,
+      "zone": 1,
+      "lines": [
+        "Ashton"
+      ],
+      "lat": 53.4810493679,
+      "lng": -2.2198151131
+    },
+    {
+      "code": "NEB",
+      "name": "Newbold",
+      "atcoCode": "9400ZZMANBD1",
+      "corridor": "Oldham & Rochdale",
+      "platforms": 2,
+      "zone": 4,
+      "lines": [
+        "Rochdale"
+      ],
+      "lat": 53.613394931,
+      "lng": -2.1354992055
+    },
+    {
+      "code": "NEH",
+      "name": "Newhey",
+      "atcoCode": "9400ZZMANHY1",
+      "corridor": "Oldham & Rochdale",
+      "platforms": 2,
+      "zone": 4,
+      "lines": [
+        "Rochdale"
+      ],
+      "lat": 53.6008299984,
+      "lng": -2.0946585416
+    },
+    {
+      "code": "NHM",
+      "name": "Newton Heath and Moston",
+      "atcoCode": "9400ZZMANEW1",
+      "corridor": "Oldham & Rochdale",
+      "platforms": 2,
+      "zone": 2,
+      "lines": [
+        "Rochdale"
+      ],
+      "lat": 53.5042267329,
+      "lng": -2.1837232589
+    },
+    {
+      "code": "NMR",
+      "name": "Northern Moor",
+      "atcoCode": "9400ZZMANMR1",
+      "corridor": "Airport",
+      "platforms": 2,
+      "zone": 3,
+      "lines": [
+        "Airport"
+      ],
+      "lat": 53.4145544826,
+      "lng": -2.2881513123
+    },
+    {
+      "code": "OLD",
+      "name": "Old Trafford",
+      "atcoCode": "9400ZZMAOLD2",
+      "corridor": "Altrincham",
+      "platforms": 2,
+      "zone": 2,
+      "lines": [
+        "Altrincham"
+      ],
+      "lat": 53.4560743794,
+      "lng": -2.2850068072
+    },
+    {
+      "code": "OHC",
+      "name": "Oldham Central",
+      "atcoCode": "9400ZZMAOMC1",
+      "corridor": "Oldham & Rochdale",
+      "platforms": 4,
+      "zone": 3,
+      "lines": [
+        "Rochdale"
+      ],
+      "lat": 53.5403139516,
+      "lng": -2.1121345029
+    },
+    {
+      "code": "OHK",
+      "name": "Oldham King Street",
+      "atcoCode": "9400ZZMAOKS1",
+      "corridor": "Oldham & Rochdale",
+      "platforms": 2,
+      "zone": 3,
+      "lines": [
+        "Rochdale"
+      ],
+      "lat": 53.5395711032,
+      "lng": -2.1174322118
+    },
+    {
+      "code": "OHM",
+      "name": "Oldham Mumps",
+      "atcoCode": "9400ZZMAOMP1",
+      "corridor": "Oldham & Rochdale",
+      "platforms": 2,
+      "zone": 3,
+      "lines": [
+        "Rochdale"
+      ],
+      "lat": 53.5424034135,
+      "lng": -2.103459906
+    },
+    {
+      "code": "PAR",
+      "name": "Parkway",
+      "atcoCode": "9400ZZMAPAR2",
+      "corridor": "Trafford Park",
+      "platforms": 2,
+      "zone": 2,
+      "lines": [
+        "Trafford Park"
+      ],
+      "lat": 53.4682676521,
+      "lng": -2.3243797567
+    },
+    {
+      "code": "PLH",
+      "name": "Peel Hall",
+      "atcoCode": "9400ZZMAPLL1",
+      "corridor": "Airport",
+      "platforms": 2,
+      "zone": 4,
+      "lines": [
+        "Airport"
+      ],
+      "lat": 53.3737132444,
+      "lng": -2.2503949954
+    },
+    {
+      "code": "PIC",
+      "name": "Piccadilly",
+      "atcoCode": "9400ZZMAPIC1",
+      "corridor": "Bury",
+      "platforms": 2,
+      "zone": 1,
+      "lines": [
+        "Bury",
+        "Altrincham",
+        "Eccles",
+        "Airport"
+      ],
+      "lat": 53.4770298302,
+      "lng": -2.2304092919
+    },
+    {
+      "code": "PCG",
+      "name": "Piccadilly Gardens",
+      "atcoCode": "9400ZZMAPGD2",
+      "corridor": "Bury",
+      "platforms": 4,
+      "zone": 1,
+      "lines": [
+        "Bury",
+        "Rochdale",
+        "East Didsbury",
+        "Ashton"
+      ],
+      "lat": 53.4802724384,
+      "lng": -2.236987811
+    },
+    {
+      "code": "POM",
+      "name": "Pomona",
+      "atcoCode": "9400ZZMAPOM1",
+      "corridor": "Eccles",
+      "platforms": 2,
+      "zone": 2,
+      "lines": [
+        "Eccles",
+        "Trafford Park"
+      ],
+      "lat": 53.4651935124,
+      "lng": -2.2780294948
+    },
+    {
+      "code": "PRS",
+      "name": "Prestwich",
+      "atcoCode": "9400ZZMAPWC2",
+      "corridor": "Bury",
+      "platforms": 2,
+      "zone": 3,
+      "lines": [
+        "Bury"
+      ],
+      "lat": 53.5333182757,
+      "lng": -2.2819023349
+    },
+    {
+      "code": "QNS",
+      "name": "Queens Road",
+      "atcoCode": "9400ZZMAQRD2",
+      "corridor": "Bury",
+      "platforms": 2,
+      "zone": 2,
+      "lines": [
+        "Bury"
+      ],
+      "lat": 53.5016807825,
+      "lng": -2.2266494916
+    },
+    {
+      "code": "RAD",
+      "name": "Radcliffe",
+      "atcoCode": "9400ZZMARAD1",
+      "corridor": "Bury",
+      "platforms": 2,
+      "zone": 4,
+      "lines": [
+        "Bury"
+      ],
+      "lat": 53.5623899316,
+      "lng": -2.3210307459
+    },
+    {
+      "code": "RBN",
+      "name": "Robinswood Road",
+      "atcoCode": "9400ZZMARWD1",
+      "corridor": "Airport",
+      "platforms": 2,
+      "zone": 4,
+      "lines": [
+        "Airport"
+      ],
+      "lat": 53.3763956977,
+      "lng": -2.2586906852
+    },
+    {
+      "code": "ROC",
+      "name": "Rochdale Railway Station",
+      "atcoCode": "9400ZZMARRS1",
+      "corridor": "Oldham & Rochdale",
+      "platforms": 4,
+      "zone": 4,
+      "lines": [
+        "Rochdale"
+      ],
+      "lat": 53.6110247492,
+      "lng": -2.1544526694
+    },
+    {
+      "code": "RTC",
+      "name": "Rochdale Town Centre",
+      "atcoCode": "9400ZZMARIN1",
+      "corridor": "Oldham & Rochdale",
+      "platforms": 4,
+      "zone": 4,
+      "lines": [
+        "Rochdale"
+      ],
+      "lat": 53.6173341878,
+      "lng": -2.1553798789
+    },
+    {
+      "code": "RTH",
+      "name": "Roundthorn",
+      "atcoCode": "9400ZZMARND1",
+      "corridor": "Airport",
+      "platforms": 4,
+      "zone": 3,
+      "lines": [
+        "Airport"
+      ],
+      "lat": 53.3926441504,
+      "lng": -2.2891721972
+    },
+    {
+      "code": "SAL",
+      "name": "Sale",
+      "atcoCode": "9400ZZMASLE2",
+      "corridor": "Altrincham",
+      "platforms": 2,
+      "zone": 3,
+      "lines": [
+        "Altrincham"
+      ],
+      "lat": 53.4241853331,
+      "lng": -2.3191394411
+    },
+    {
+      "code": "SWP",
+      "name": "Sale Water Park",
+      "atcoCode": "9400ZZMASWP2",
+      "corridor": "Airport",
+      "platforms": 2,
+      "zone": 3,
+      "lines": [
+        "Airport"
+      ],
+      "lat": 53.4282433092,
+      "lng": -2.2908313313
+    },
+    {
+      "code": "SFQ",
+      "name": "Salford Quays",
+      "atcoCode": "9400ZZMASQY1",
+      "corridor": "Eccles",
+      "platforms": 2,
+      "zone": 2,
+      "lines": [
+        "Eccles"
+      ],
+      "lat": 53.4704131132,
+      "lng": -2.2839674299
+    },
+    {
+      "code": "SHD",
+      "name": "Shadowmoss",
+      "atcoCode": "9400ZZMASDW1",
+      "corridor": "Airport",
+      "platforms": 2,
+      "zone": 4,
+      "lines": [
+        "Airport"
+      ],
+      "lat": 53.3679619667,
+      "lng": -2.2524452592
+    },
+    {
+      "code": "SHC",
+      "name": "Shaw and Crompton",
+      "atcoCode": "9400ZZMASHA1",
+      "corridor": "Oldham & Rochdale",
+      "platforms": 3,
+      "zone": 4,
+      "lines": [
+        "Rochdale"
+      ],
+      "lat": 53.5761674215,
+      "lng": -2.0895481845
+    },
+    {
+      "code": "SHL",
+      "name": "Shudehill",
+      "atcoCode": "9400ZZMASHU2",
+      "corridor": "Altrincham",
+      "platforms": 2,
+      "zone": 1,
+      "lines": [
+        "Bury",
+        "Rochdale"
+      ],
+      "lat": 53.4852776589,
+      "lng": -2.2391066292
+    },
+    {
+      "code": "SOC",
+      "name": "South Chadderton",
+      "atcoCode": "9400ZZMASCH1",
+      "corridor": "Oldham & Rochdale",
+      "platforms": 2,
+      "zone": 3,
+      "lines": [
+        "Rochdale"
+      ],
+      "lat": 53.5267187383,
+      "lng": -2.1451820867
+    },
+    {
+      "code": "SPS",
+      "name": "St Peter's Square",
+      "atcoCode": "9400ZZMASTP4",
+      "corridor": "Eccles",
+      "platforms": 6,
+      "zone": 1,
+      "lines": [
+        "Altrincham",
+        "Bury",
+        "Eccles",
+        "Airport",
+        "East Didsbury",
+        "Rochdale",
+        "Ashton",
+        "Trafford Park"
+      ],
+      "lat": 53.4782182293,
+      "lng": -2.2431081393
+    },
+    {
+      "code": "SWR",
+      "name": "St Werburgh’s Road",
+      "atcoCode": "9400ZZMASTW2",
+      "corridor": "South Manchester",
+      "platforms": 2,
+      "zone": 2,
+      "lines": [
+        "Airport",
+        "East Didsbury"
+      ],
+      "lat": 53.4388412989,
+      "lng": -2.2657145447
+    },
+    {
+      "code": "STR",
+      "name": "Stretford",
+      "atcoCode": "9400ZZMASFD2",
+      "corridor": "Altrincham",
+      "platforms": 2,
+      "zone": 2,
+      "lines": [
+        "Altrincham"
+      ],
+      "lat": 53.4460264212,
+      "lng": -2.3038078823
+    },
+    {
+      "code": "TRC",
+      "name": "The Trafford Centre",
+      "atcoCode": "9400ZZMATRC2",
+      "corridor": "Trafford Park",
+      "platforms": 2,
+      "zone": 3,
+      "lines": [
+        "Trafford Park"
+      ],
+      "lat": 53.4679165082,
+      "lng": -2.3477940921
+    },
+    {
+      "code": "TMP",
+      "name": "Timperley",
+      "atcoCode": "9400ZZMATIM2",
+      "corridor": "Altrincham",
+      "platforms": 2,
+      "zone": 4,
+      "lines": [
+        "Altrincham"
+      ],
+      "lat": 53.4042544039,
+      "lng": -2.3384036505
+    },
+    {
+      "code": "TFB",
+      "name": "Trafford Bar",
+      "atcoCode": "9400ZZMATRA1",
+      "corridor": "Altrincham",
+      "platforms": 2,
+      "zone": 2,
+      "lines": [
+        "Altrincham",
+        "East Didsbury"
+      ],
+      "lat": 53.4617587999,
+      "lng": -2.2772539486
+    },
+    {
+      "code": "EVC",
+      "name": "Trafford Palazzo",
+      "atcoCode": "9400ZZMAEVC1",
+      "corridor": "Trafford Park",
+      "platforms": 2,
+      "zone": 3,
+      "lines": [
+        "Trafford Park"
+      ],
+      "lat": 53.4657339268,
+      "lng": -2.3419892513
+    },
+    {
+      "code": "VEL",
+      "name": "Velopark",
+      "atcoCode": "9400ZZMAVPK1",
+      "corridor": "East Manchester",
+      "platforms": 3,
+      "zone": 2,
+      "lines": [
+        "Ashton"
+      ],
+      "lat": 53.4822885127,
+      "lng": -2.1930154769
+    },
+    {
+      "code": "VIC",
+      "name": "Victoria",
+      "atcoCode": "9400ZZMAVIC4",
+      "corridor": "Altrincham",
+      "platforms": 4,
+      "zone": 1,
+      "lines": [
+        "Bury",
+        "Rochdale",
+        "East Didsbury",
+        "Ashton"
+      ],
+      "lat": 53.4877421261,
+      "lng": -2.2417174125
+    },
+    {
+      "code": "VLG",
+      "name": "Village",
+      "atcoCode": "9400ZZMAVLG2",
+      "corridor": "Trafford Park",
+      "platforms": 2,
+      "zone": 2,
+      "lines": [
+        "Trafford Park"
+      ],
+      "lat": 53.4674095941,
+      "lng": -2.309073014
+    },
+    {
+      "code": "WST",
+      "name": "Weaste",
+      "atcoCode": "9400ZZMAWST1",
+      "corridor": "Eccles",
+      "platforms": 2,
+      "zone": 2,
+      "lines": [
+        "Eccles"
+      ],
+      "lat": 53.4824216266,
+      "lng": -2.3075148627
+    },
+    {
+      "code": "WDD",
+      "name": "West Didsbury",
+      "atcoCode": "9400ZZMAWTD2",
+      "corridor": "South Manchester",
+      "platforms": 2,
+      "zone": 3,
+      "lines": [
+        "East Didsbury"
+      ],
+      "lat": 53.424467407,
+      "lng": -2.2360528894
+    },
+    {
+      "code": "WWD",
+      "name": "Westwood",
+      "atcoCode": "9400ZZMAWWD1",
+      "corridor": "Oldham & Rochdale",
+      "platforms": 2,
+      "zone": 3,
+      "lines": [
+        "Rochdale"
+      ],
+      "lat": 53.5423538912,
+      "lng": -2.1258579193
+    },
+    {
+      "code": "WSD",
+      "name": "Wharfside",
+      "atcoCode": "9400ZZMAWFS2",
+      "corridor": "Trafford Park",
+      "platforms": 2,
+      "zone": 2,
+      "lines": [
+        "Trafford Park"
+      ],
+      "lat": 53.4662371372,
+      "lng": -2.2875084333
+    },
+    {
+      "code": "WFD",
+      "name": "Whitefield",
+      "atcoCode": "9400ZZMAWFD2",
+      "corridor": "Bury",
+      "platforms": 2,
+      "zone": 3,
+      "lines": [
+        "Bury"
+      ],
+      "lat": 53.5512115751,
+      "lng": -2.2952051111
+    },
+    {
+      "code": "WTH",
+      "name": "Withington",
+      "atcoCode": "9400ZZMAWIT2",
+      "corridor": "South Manchester",
+      "platforms": 2,
+      "zone": 3,
+      "lines": [
+        "East Didsbury"
+      ],
+      "lat": 53.4327822155,
+      "lng": -2.2493378112
+    },
+    {
+      "code": "WPK",
+      "name": "Wythenshawe Park",
+      "atcoCode": "9400ZZMAWPK1",
+      "corridor": "Airport",
+      "platforms": 2,
+      "zone": 3,
+      "lines": [
+        "Airport"
+      ],
+      "lat": 53.4077357466,
+      "lng": -2.2956997904
+    },
+    {
+      "code": "WYC",
+      "name": "Wythenshawe Town Centre",
+      "atcoCode": "9400ZZMAWYT2",
+      "corridor": "Airport",
+      "platforms": 3,
+      "zone": 4,
+      "lines": [
+        "Airport"
+      ],
+      "lat": 53.3800462057,
+      "lng": -2.2637514069
+    }
+  ],
+  "corridors": [
+    {
+      "name": "Airport",
+      "colour": "#093a8c"
+    },
+    {
+      "name": "Altrincham",
+      "colour": "#00a65d"
+    },
+    {
+      "name": "Bury",
+      "colour": "#ffcd00"
+    },
+    {
+      "name": "East Manchester",
+      "colour": "#009ddc"
+    },
+    {
+      "name": "Eccles",
+      "colour": "#0066b3"
+    },
+    {
+      "name": "Oldham & Rochdale",
+      "colour": "#ee5c00"
+    },
+    {
+      "name": "South Manchester",
+      "colour": "#c5499f"
+    },
+    {
+      "name": "Trafford Park",
+      "colour": "#da291c"
+    }
+  ]
+}

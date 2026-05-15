@@ -41,3 +41,16 @@ app-example
 # generated native folders
 /ios
 /android
+
+# Test artefacts
+playwright-report/
+test-results/
+
+# Reference imagery / large design bundles — kept locally, not pushed.
+HIRax*.jpg
+assets/*.zip
+
+# Swift Package Manager build artefacts (the LiveActivityViews package)
+**/.build/
+**/.swiftpm/xcode/
+

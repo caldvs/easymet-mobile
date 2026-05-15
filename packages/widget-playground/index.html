@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Live Activity playground</title>
+<link rel="stylesheet" href="css/app.css" />
+<link rel="stylesheet" href="css/widgets.css" />
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <div class="brand">Live Activity</div>
+      <div class="brand-sub">playground</div>
+    </div>
+    <div class="sidebar-search">
+      <input type="text" id="searchInput" placeholder="Search…" />
+    </div>
+    <nav class="sidebar-nav" id="sidebarNav"><!-- populated --></nav>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="modes">
+        <button class="mode-btn active" data-mode="preview">Preview</button>
+        <button class="mode-btn" data-mode="design">Design</button>
+      </div>
+      <div class="topbar-title" id="topbarTitle">Select an item</div>
+      <div class="topbar-actions">
+        <div class="seg" title="Device frame">
+          <button class="active" data-device="fold-closed">Fold · outer</button>
+          <button data-device="fold-open">Fold · inner</button>
+        </div>
+        <div class="seg">
+          <button class="active" data-scheme="light">Light</button>
+          <button data-scheme="dark">Dark</button>
+        </div>
+        <div class="seg">
+          <button class="active" data-bg="mockup">Mockup</button>
+          <button data-bg="plain">Plain</button>
+        </div>
+        <div class="seg" title="Zoom">
+          <button id="zoomOut" title="Zoom out">−</button>
+          <button id="zoomReset" title="Reset to natural size (100%)">100%</button>
+          <button id="zoomIn" title="Zoom in">+</button>
+        </div>
+        <button class="btn" id="exportBtn">Export PNG</button>
+      </div>
+    </header>
+
+    <section class="stage" id="stage">
+      <div class="empty">Pick an item from the sidebar, or switch to Design.</div>
+    </section>
+
+    <section class="props" id="props">
+      <div class="props-head">Properties</div>
+      <div class="props-body" id="propsBody">
+        <div class="empty small">No selection</div>
+      </div>
+    </section>
+  </main>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.13/dist/html-to-image.min.js"></script>
+<script src="js/core.js"></script>
+<script src="js/components.js"></script>
+<script src="js/presets.js"></script>
+<script src="js/canvas.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
