@@ -28,6 +28,10 @@ interface Props {
   style?: ViewStyle;
 }
 
+// The visible padding stays tight for `sm` (so the button reads as small),
+// but `minHeight` is floored at `minTouch` (44pt on native) so the tap
+// area still meets HIG. The visible chrome can be smaller than the hit
+// area — RN supports that without a layout shift.
 const SIZES: Record<ButtonSize, { padV: number; padH: number; font: number; minH: number }> = {
   sm: { padV: 7, padH: 14, font: 13, minH: 32 },
   md: { padV: 10, padH: 18, font: 14, minH: 40 },

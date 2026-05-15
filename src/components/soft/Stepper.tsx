@@ -83,14 +83,20 @@ export function Stepper({
         <View style={{ marginLeft: 2, alignItems: "center" }}>
           <Pressable
             onPress={() => bump(step)}
-            hitSlop={8}
+            // 12pt hitSlop on a 14pt chevron = ~38pt target — still under
+            // 44pt but close, and only used on web where cursor precision
+            // is higher (mobile takes the round-button branch below).
+            hitSlop={12}
             style={(state) => ({ paddingHorizontal: 4, paddingVertical: 2, ...pressFeedback(state) })}
           >
             <SoftIcon name="chevronUp" size={14} color={soft.textMuted} strokeWidth={2} />
           </Pressable>
           <Pressable
             onPress={() => bump(-step)}
-            hitSlop={8}
+            // 12pt hitSlop on a 14pt chevron = ~38pt target — still under
+            // 44pt but close, and only used on web where cursor precision
+            // is higher (mobile takes the round-button branch below).
+            hitSlop={12}
             style={(state) => ({
               paddingHorizontal: 4,
               paddingVertical: 2,

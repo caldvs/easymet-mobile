@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Animated, Easing, Pressable, View } from "react-native";
+import { useReduceMotion } from "./interaction";
 import { soft } from "./tokens";
 
 // Animated boolean toggle. Uncontrolled by default — pass `value` /
@@ -30,14 +31,15 @@ export function Switch({
   const TRAVEL = TRACK_W - THUMB - PAD * 2;
 
   const anim = useRef(new Animated.Value(value ? 1 : 0)).current;
+  const reduceMotion = useReduceMotion();
   useEffect(() => {
     Animated.timing(anim, {
       toValue: value ? 1 : 0,
-      duration: 180,
+      duration: reduceMotion ? 0 : 180,
       easing: Easing.out(Easing.cubic),
       useNativeDriver: false,
     }).start();
-  }, [value, anim]);
+  }, [value, anim, reduceMotion]);
 
   const toggle = () => {
     if (disabled) return;

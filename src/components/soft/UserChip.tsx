@@ -76,6 +76,8 @@ export function UserChip({
       {onDismiss && (
         <Pressable
           onPress={onDismiss}
+          accessibilityRole="button"
+          accessibilityLabel={`Remove ${name}`}
           // Expand the touch area without bloating the visible chip — the
           // hit area extends `(minTouch - 16) / 2` in every direction.
           hitSlop={Math.max(8, (minTouch - 16) / 2)}

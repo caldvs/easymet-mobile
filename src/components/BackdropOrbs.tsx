@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Animated, Easing, Platform, View } from "react-native";
 import Svg, { Circle, Defs, RadialGradient, Stop } from "react-native-svg";
+import { useReduceMotion } from "./soft/interaction";
 
 // Subtle pastel orbs behind the grouped canvas. Each orb breathes slowly
 // in a sinusoidal drift, offset from the others in period and phase so
@@ -60,8 +61,13 @@ function Orb({
   ...pos
 }: OrbDef) {
   const a = useRef(new Animated.Value(0)).current;
+  const reduceMotion = useReduceMotion();
 
   useEffect(() => {
+    // Honour the OS Reduce Motion preference — the orbs are
+    // decorative-only, so freezing them at their starting position is
+    // the right behaviour (no static-mount frame to worry about).
+    if (reduceMotion) return;
     const loop = Animated.loop(
       Animated.sequence([
         Animated.timing(a, {
@@ -86,7 +92,7 @@ function Orb({
       if (timer) clearTimeout(timer);
       loop.stop();
     };
-  }, [a, periodMs, delayMs]);
+  }, [a, periodMs, delayMs, reduceMotion]);
 
   const translateX = a.interpolate({
     inputRange: [0, 1],

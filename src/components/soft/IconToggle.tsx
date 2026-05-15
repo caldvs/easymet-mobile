@@ -12,12 +12,15 @@ export function IconToggle({
   selected = false,
   size,
   onPress,
+  accessibilityLabel,
 }: {
   glyph: React.ReactNode;
   glyphStyle?: TextStyle;
   selected?: boolean;
   size?: number;
   onPress?: () => void;
+  /** Required when the glyph is icon-only (no readable string). */
+  accessibilityLabel?: string;
 }) {
   // 36 looks right on desktop but is below the iOS/Android minimum touch
   // target. Bump to minTouch (44 on native) when no explicit size is set.
@@ -25,6 +28,9 @@ export function IconToggle({
   return (
     <Pressable
       onPress={onPress}
+      accessibilityRole="button"
+      accessibilityLabel={accessibilityLabel}
+      accessibilityState={{ selected }}
       style={(state) => ({
         width: resolvedSize,
         height: resolvedSize,

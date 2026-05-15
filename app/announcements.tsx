@@ -30,6 +30,15 @@ const SEVERITY_LABEL: Record<DisruptionSeverity, string> = {
   info: "Info",
 };
 
+// Pair every severity tone with an icon so the meaning is conveyed
+// through both shape AND colour — HIG Rule 4.3 / 5.6 (don't rely on
+// colour alone). Reads correctly for colour-blind users + VoiceOver.
+const SEVERITY_ICON: Record<DisruptionSeverity, "errorOctagon" | "warning" | "info"> = {
+  severe: "errorOctagon",
+  notice: "warning",
+  info: "info",
+};
+
 export default function AnnouncementsScreen() {
   const router = useRouter();
   const colours = useTheme();
@@ -231,7 +240,11 @@ function DisruptionCard({
           marginBottom: 8,
         }}
       >
-        <Pill label={SEVERITY_LABEL[d.severity]} tone={tone} />
+        <Pill
+          label={SEVERITY_LABEL[d.severity]}
+          tone={tone}
+          leadingIcon={SEVERITY_ICON[d.severity]}
+        />
         {d.type === "planned-works" && (
           <Text
             style={{

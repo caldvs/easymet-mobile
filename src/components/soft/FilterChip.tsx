@@ -63,6 +63,8 @@ export function FilterChip({
           />
           <Pressable
             onPress={onClear}
+            accessibilityRole="button"
+            accessibilityLabel={`Clear ${label} filter`}
             hitSlop={Math.max(8, (minTouch - 16) / 2)}
             style={(state) => ({
               padding: 2,

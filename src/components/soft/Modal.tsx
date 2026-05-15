@@ -8,7 +8,7 @@ import {
   View,
   type ViewStyle,
 } from "react-native";
-import { minTouch, pressFeedback } from "./interaction";
+import { minTouch, pressFeedback, useReduceMotion } from "./interaction";
 import { SoftIcon } from "./SoftIcon";
 import { soft } from "./tokens";
 
@@ -36,23 +36,28 @@ export function SoftModal({
 }) {
   const fade = useRef(new Animated.Value(0)).current;
   const slide = useRef(new Animated.Value(40)).current;
+  const reduceMotion = useReduceMotion();
 
   useEffect(() => {
+    // When the system Reduce Motion preference is on, snap to the end
+    // state instantly (duration 0) — no fade, no slide.
+    const fadeMs = reduceMotion ? 0 : 180;
+    const slideMs = reduceMotion ? 0 : 220;
     Animated.parallel([
       Animated.timing(fade, {
         toValue: visible ? 1 : 0,
-        duration: 180,
+        duration: fadeMs,
         easing: Easing.out(Easing.cubic),
         useNativeDriver: true,
       }),
       Animated.timing(slide, {
         toValue: visible ? 0 : 40,
-        duration: 220,
+        duration: slideMs,
         easing: Easing.out(Easing.cubic),
         useNativeDriver: true,
       }),
     ]).start();
-  }, [visible, fade, slide]);
+  }, [visible, fade, slide, reduceMotion]);
 
   const sheetLayout: ViewStyle =
     position === "center"
@@ -139,6 +144,8 @@ export function SoftModal({
               {dismissable && (
                 <Pressable
                   onPress={onClose}
+                  accessibilityRole="button"
+                  accessibilityLabel={title ? `Close ${title}` : "Close"}
                   hitSlop={8}
                   style={(state) => ({
                     width: minTouch,

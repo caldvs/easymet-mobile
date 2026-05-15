@@ -100,7 +100,18 @@ export function TextField({
         {actualTrailing && (
           <Pressable
             onPress={handleTrailing}
-            hitSlop={8}
+            accessibilityRole={handleTrailing ? "button" : undefined}
+            accessibilityLabel={
+              showSecureToggle
+                ? reveal
+                  ? "Hide password"
+                  : "Show password"
+                : undefined
+            }
+            // 12pt hitSlop on a 16pt glyph → 40pt target. Combined with
+            // the parent row's 44pt min-height the trailing affordance
+            // is now thumb-safe.
+            hitSlop={12}
             disabled={!handleTrailing}
             style={(state) => ({
               padding: 2,

@@ -1,7 +1,7 @@
 import { useState, type ReactNode } from "react";
 import { Animated, Pressable, Text, View } from "react-native";
 import { useEffect, useRef } from "react";
-import { minTouch, pressFeedback } from "./interaction";
+import { minTouch, pressFeedback, useReduceMotion } from "./interaction";
 import { SoftIcon } from "./SoftIcon";
 import { soft } from "./tokens";
 
@@ -76,13 +76,14 @@ function AccordionItem({
   onToggle: () => void;
 }) {
   const rot = useRef(new Animated.Value(expanded ? 1 : 0)).current;
+  const reduceMotion = useReduceMotion();
   useEffect(() => {
     Animated.timing(rot, {
       toValue: expanded ? 1 : 0,
-      duration: 180,
+      duration: reduceMotion ? 0 : 180,
       useNativeDriver: true,
     }).start();
-  }, [expanded, rot]);
+  }, [expanded, rot, reduceMotion]);
 
   return (
     <View>

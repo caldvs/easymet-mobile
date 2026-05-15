@@ -1,7 +1,7 @@
 import { Pressable, Text, View, type ViewStyle } from "react-native";
 import { pressFeedback } from "./interaction";
 import { SoftIcon, type IconName } from "./SoftIcon";
-import { soft } from "./tokens";
+import { useSoftTheme } from "./tokens";
 
 // Rectangular content container. Distinct from SoftPill (which is a
 // capsule meant for chips/buttons) — Card is for "this is a chunk of
@@ -27,6 +27,7 @@ export function SoftCard({
   leadingIcon?: IconName;
   headerTrailing?: React.ReactNode;
 }) {
+  const theme = useSoftTheme();
   const body = (
     <>
       {(title || subtitle || leadingIcon || headerTrailing) && (
@@ -44,20 +45,20 @@ export function SoftCard({
                 width: 36,
                 height: 36,
                 borderRadius: 10,
-                backgroundColor: soft.surfaceInset,
+                backgroundColor: theme.surfaceInset,
                 alignItems: "center",
                 justifyContent: "center",
               }}
             >
-              <SoftIcon name={leadingIcon} size={18} color={soft.text} />
+              <SoftIcon name={leadingIcon} size={18} color={theme.text} />
             </View>
           )}
           <View style={{ flex: 1 }}>
             {title && (
               <Text
                 style={{
-                  fontFamily: soft.font.family,
-                  color: soft.text,
+                  fontFamily: theme.font.family,
+                  color: theme.text,
                   fontSize: 17,
                   fontWeight: "600",
                   letterSpacing: -0.2,
@@ -69,8 +70,8 @@ export function SoftCard({
             {subtitle && (
               <Text
                 style={{
-                  fontFamily: soft.font.family,
-                  color: soft.textMuted,
+                  fontFamily: theme.font.family,
+                  color: theme.textMuted,
                   fontSize: 13,
                   fontWeight: "500",
                   marginTop: 2,
@@ -88,10 +89,10 @@ export function SoftCard({
   );
 
   const layout: ViewStyle = {
-    backgroundColor: soft.surface,
-    borderRadius: soft.radii.card,
+    backgroundColor: theme.surface,
+    borderRadius: theme.radii.card,
     padding,
-    ...soft.shadow.pill,
+    ...theme.shadow.pill,
     ...(style ?? {}),
   };
 

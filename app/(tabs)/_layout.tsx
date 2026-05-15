@@ -27,7 +27,12 @@ export default function TabsLayout() {
       </NativeTabs.Trigger>
       <NativeTabs.Trigger name="browse">
         <Label>Browse</Label>
-        <Icon sf="line.3.horizontal.circle" />
+        <Icon
+          sf={{
+            default: "line.3.horizontal.circle",
+            selected: "line.3.horizontal.circle.fill",
+          }}
+        />
       </NativeTabs.Trigger>
     </NativeTabs>
   );

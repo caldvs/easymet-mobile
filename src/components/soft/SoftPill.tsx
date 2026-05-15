@@ -1,6 +1,6 @@
 import { Pressable, View, type ViewStyle } from "react-native";
 import { pressFeedback } from "./interaction";
-import { soft } from "./tokens";
+import { soft, useSoftTheme } from "./tokens";
 
 // The foundational capsule for the soft-UI kit. White surface, soft drop
 // shadow, fully rounded by default. Everything else (gradient buttons,
@@ -27,15 +27,16 @@ export function SoftPill({
   paddingVertical?: number;
   style?: ViewStyle;
 }) {
+  const theme = useSoftTheme();
   const isInset = variant === "inset";
   const shadow = isInset
     ? null
     : variant === "raised" || pressed
-    ? soft.shadow.raised
-    : soft.shadow.pill;
+    ? theme.shadow.raised
+    : theme.shadow.pill;
 
   const baseStyle: ViewStyle = {
-    backgroundColor: isInset ? soft.surfaceInset : soft.surface,
+    backgroundColor: isInset ? theme.surfaceInset : theme.surface,
     borderRadius: radius,
     paddingHorizontal,
     paddingVertical,
