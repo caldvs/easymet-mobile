@@ -140,12 +140,14 @@ export const Pinned: StoryObj = {
   ),
 };
 
-// Journey + Station detail + Announcements are pushed screens (not tabs),
-// so they hide the tab bar — matches how iOS presents detail flows.
+// Detail screens (Journey, Station detail, Announcements) keep the tab
+// bar visible — they're pushed *inside* a tab, which is the iOS
+// convention (the bar persists across drill-down). The pathname stays
+// on the originating tab so the active state reads correctly.
 export const Journey: StoryObj = {
   name: "Journey",
   render: () => (
-    <Phone pathname="/" showTabBar={false}>
+    <Phone pathname="/plan">
       <SeedJourney fromCode="SPS" toCode="ALT" />
       <JourneyScreen />
     </Phone>
@@ -156,7 +158,7 @@ export const StationDetail: StoryObj = {
   name: "Station detail",
   parameters: { routeParams: { code: "AIR" } },
   render: () => (
-    <Phone pathname="/" showTabBar={false}>
+    <Phone pathname="/browse">
       <StationDetailScreen />
     </Phone>
   ),
@@ -165,7 +167,7 @@ export const StationDetail: StoryObj = {
 export const Announcements: StoryObj = {
   name: "Announcements",
   render: () => (
-    <Phone pathname="/" showTabBar={false}>
+    <Phone pathname="/">
       <AnnouncementsScreen />
     </Phone>
   ),

@@ -26,23 +26,30 @@ const meta: Meta = {
 
 export default meta;
 
+// Each story sets `pathname` so the global TabBar overlay highlights
+// the right tab — read by the expo-router stub's usePathname().
+
 export const Home: StoryObj = {
   name: "Home",
+  parameters: { pathname: "/" },
   render: () => <HomeScreen />,
 };
 
 export const Nearby: StoryObj = {
   name: "Nearby",
+  parameters: { pathname: "/nearby" },
   render: () => <NearbyScreen />,
 };
 
 export const Browse: StoryObj = {
   name: "Browse",
+  parameters: { pathname: "/browse" },
   render: () => <BrowseScreen />,
 };
 
 export const Plan: StoryObj = {
   name: "Plan",
+  parameters: { pathname: "/plan" },
   render: () => <PlanScreen />,
 };
 
@@ -64,6 +71,7 @@ function SeedFavourites({ codes }: { codes: ReadonlyArray<string> }) {
 
 export const Pinned: StoryObj = {
   name: "Pinned",
+  parameters: { pathname: "/" },
   render: () => (
     <>
       <SeedFavourites codes={["SPS", "CNK", "ALT"]} />
@@ -74,23 +82,27 @@ export const Pinned: StoryObj = {
 
 export const PinnedEmpty: StoryObj = {
   name: "Pinned — empty",
+  parameters: { pathname: "/" },
   render: () => <PinnedScreen />,
 };
 
+// Detail / overlay screens: Announcements and Station Detail are pushed
+// inside a tab so the TabBar stays visible — matches iOS conventions.
 export const Announcements: StoryObj = {
   name: "Announcements",
+  parameters: { pathname: "/" },
   render: () => <AnnouncementsScreen />,
 };
 
 export const StationDetail: StoryObj = {
   name: "Station Detail — St Peter's Square",
-  parameters: { routeParams: { code: "SPS" } },
+  parameters: { routeParams: { code: "SPS" }, pathname: "/browse" },
   render: () => <StationDetailScreen />,
 };
 
 export const StationDetailAirport: StoryObj = {
   name: "Station Detail — Manchester Airport",
-  parameters: { routeParams: { code: "AIR" } },
+  parameters: { routeParams: { code: "AIR" }, pathname: "/browse" },
   render: () => <StationDetailScreen />,
 };
 
@@ -109,6 +121,7 @@ function SeedJourney({ fromCode, toCode }: { fromCode: string; toCode: string })
 
 export const Journey: StoryObj = {
   name: "Journey — SPS → Altrincham",
+  parameters: { pathname: "/plan" },
   render: () => (
     <>
       <SeedJourney fromCode="SPS" toCode="ALT" />
@@ -119,6 +132,7 @@ export const Journey: StoryObj = {
 
 export const JourneyToAirport: StoryObj = {
   name: "Journey — Victoria → Manchester Airport",
+  parameters: { pathname: "/plan" },
   render: () => (
     <>
       <SeedJourney fromCode="VIC" toCode="AIR" />

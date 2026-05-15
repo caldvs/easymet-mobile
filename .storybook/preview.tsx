@@ -1,6 +1,7 @@
 import type { Decorator, Preview } from "@storybook/react-vite";
 import { View } from "react-native";
 import { BackdropOrbs } from "../src/components/BackdropOrbs";
+import { TabBar } from "../src/components/TabBar";
 import { DemoProvider } from "../src/lib/DemoMode";
 import { DisruptionsProvider } from "../src/lib/DisruptionsContext";
 import { DismissedAnnouncementsProvider } from "../src/lib/DismissedAnnouncementsContext";
@@ -19,6 +20,13 @@ const withProviders: Decorator = (Story, context) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (globalThis as any).__SB_ROUTE_PARAMS__ = routeParams;
 
+  // Stories can set parameters.pathname to drive the TabBar's active tab
+  // (the expo-router stub reads it via usePathname). Defaults to Home
+  // so unannotated stories pick up a sensible active state.
+  const pathname = (context.parameters?.pathname ?? "/") as string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (globalThis as any).__SB_PATHNAME__ = pathname;
+
   // Switch theme based on Storybook's globals (set by the toolbar).
   const theme = (context.globals?.theme ?? "light") as "light" | "dark";
   // Mirror app/_layout.tsx's provider stack so Pinned, Announcements,
@@ -36,6 +44,7 @@ const withProviders: Decorator = (Story, context) => {
                       <ThemedFrame
                         fullBleed={context.parameters?.fullBleed}
                         softKit={context.parameters?.softKit}
+                        hideTabBar={context.parameters?.hideTabBar}
                       >
                         <Story />
                       </ThemedFrame>
@@ -71,10 +80,14 @@ function ThemeBridge({
 function ThemedFrame({
   fullBleed,
   softKit,
+  hideTabBar,
   children,
 }: {
   fullBleed?: boolean;
   softKit?: boolean;
+  /** Opt out of the bottom TabBar overlay. Default is to show it on
+   *  every fullBleed story (matches the production app's tab layout). */
+  hideTabBar?: boolean;
   children: React.ReactNode;
 }) {
   const colours = useTheme();
@@ -86,6 +99,7 @@ function ThemedFrame({
       <View style={{ width: 402, height: 874, backgroundColor: colours.bg, overflow: "hidden" }}>
         <BackdropOrbs />
         {children}
+        {!hideTabBar && <TabBar />}
       </View>
     );
   }
