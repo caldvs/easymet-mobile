@@ -1,4 +1,5 @@
 import { BlurView } from "expo-blur";
+import { LinearGradient } from "expo-linear-gradient";
 import { usePathname, useRouter } from "expo-router";
 import { Pressable, Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -39,27 +40,54 @@ export function TabBar() {
       : "home";
 
   return (
-    <View
-      pointerEvents="box-none"
-      style={{
-        position: "absolute",
-        left: 0,
-        right: 0,
-        bottom: Math.max(insets.bottom, 8) + 8,
-        alignItems: "center",
-      }}
-    >
+    <>
+      {/* Soft fade-blur strip at the bottom of the page. Sits BEHIND the
+          floating pill (lower zIndex) and outside its bounding box so it
+          can span edge-to-edge while the pill stays a discrete shape.
+          Two stacked layers: a low-intensity BlurView for the depth, and
+          a transparent-to-canvas LinearGradient that softens the top
+          edge into the page so the blur strip doesn't read as a hard
+          band. The whole thing extends below the home-indicator inset
+          so it visually anchors to the bottom of the screen. */}
       <View
+        pointerEvents="none"
         style={{
-          borderRadius: 32,
+          position: "absolute",
+          left: 0,
+          right: 0,
+          bottom: 0,
+          height: 130,
           overflow: "hidden",
-          shadowColor: "#0a0e2a",
-          shadowOpacity: 0.16,
-          shadowRadius: 24,
-          shadowOffset: { width: 0, height: 10 },
-          elevation: 8,
         }}
       >
+        <BlurView intensity={28} tint="light" style={{ flex: 1 }} />
+        <LinearGradient
+          colors={["rgba(244,244,251,0)", "rgba(244,244,251,0.6)"]}
+          style={{ position: "absolute", left: 0, right: 0, top: 0, height: 60 }}
+        />
+      </View>
+
+      <View
+        pointerEvents="box-none"
+        style={{
+          position: "absolute",
+          left: 0,
+          right: 0,
+          bottom: Math.max(insets.bottom, 8) + 8,
+          alignItems: "center",
+        }}
+      >
+        <View
+          style={{
+            borderRadius: 32,
+            overflow: "hidden",
+            shadowColor: "#0a0e2a",
+            shadowOpacity: 0.16,
+            shadowRadius: 24,
+            shadowOffset: { width: 0, height: 10 },
+            elevation: 8,
+          }}
+        >
         <BlurView
           intensity={70}
           tint="light"
@@ -119,7 +147,8 @@ export function TabBar() {
             );
           })}
         </BlurView>
+        </View>
       </View>
-    </View>
+    </>
   );
 }
