@@ -98,18 +98,19 @@ export function TabBar() {
           tint="light"
           style={{
             flexDirection: "row",
-            alignItems: "center",
-            paddingHorizontal: 6,
+            alignItems: "stretch",
+            paddingHorizontal: 4,
             paddingVertical: 6,
-            gap: 4,
             // Hairline outline so the pill stays visible against very
             // bright canvases where the blur alone would disappear.
             borderWidth: 1,
             borderColor: "rgba(255,255,255,0.55)",
+            minWidth: 320,
           }}
         >
           {TABS.map((t) => {
             const isActive = active === t.id;
+            const tint = isActive ? colours.accent : colours.fgMuted;
             return (
               <Pressable
                 key={t.id}
@@ -117,37 +118,38 @@ export function TabBar() {
                 accessibilityRole="tab"
                 accessibilityState={{ selected: isActive }}
                 accessibilityLabel={t.label}
+                // Equal-width tabs (flex: 1) with the icon stacked over a
+                // small label. Active state is conveyed by tint + slight
+                // weight bump on the label — no pill chassis behind the
+                // tab, which matches the iOS 17/18 tab-bar treatment.
                 style={({ pressed }) => ({
-                  flexDirection: "row",
+                  flex: 1,
                   alignItems: "center",
-                  gap: isActive ? 6 : 0,
-                  paddingHorizontal: isActive ? 14 : 12,
-                  paddingVertical: 10,
-                  borderRadius: 24,
-                  backgroundColor: isActive ? `${colours.accent}1c` : "transparent",
-                  opacity: pressed ? 0.6 : 1,
+                  justifyContent: "center",
+                  paddingVertical: 6,
+                  paddingHorizontal: 4,
+                  gap: 3,
+                  opacity: pressed ? 0.55 : 1,
                 })}
               >
                 <SoftIcon
                   name={t.icon}
-                  size={20}
-                  color={isActive ? colours.accent : colours.fgMuted}
+                  size={24}
+                  color={tint}
                   strokeWidth={isActive ? 2.2 : 1.75}
                 />
-                {isActive && (
-                  <Text
-                    style={{
-                      fontFamily: type.sansSemi,
-                      fontWeight: "600",
-                      fontSize: 13,
-                      letterSpacing: -0.2,
-                      color: colours.accent,
-                    }}
-                    numberOfLines={1}
-                  >
-                    {t.label}
-                  </Text>
-                )}
+                <Text
+                  style={{
+                    fontFamily: isActive ? type.sansSemi : type.sansMedium,
+                    fontWeight: isActive ? "600" : "500",
+                    fontSize: 10,
+                    letterSpacing: 0.1,
+                    color: tint,
+                  }}
+                  numberOfLines={1}
+                >
+                  {t.label}
+                </Text>
               </Pressable>
             );
           })}
