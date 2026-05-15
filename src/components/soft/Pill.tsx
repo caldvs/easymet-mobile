@@ -1,7 +1,7 @@
 import { Pressable, Text, View, type ViewStyle } from "react-native";
 import { pressFeedback } from "./interaction";
 import { SoftIcon, type IconName } from "./SoftIcon";
-import { soft, type Tone } from "./tokens";
+import { useSoftTheme, type Tone } from "./tokens";
 
 // Lightweight content pill — smaller and quieter than SoftPill / Button.
 // Meant for inline metadata: ETAs, counts, tags, labels next to text.
@@ -26,7 +26,8 @@ export function Pill({
   onPress?: () => void;
   style?: ViewStyle;
 }) {
-  const palette = soft.tone[tone];
+  const theme = useSoftTheme();
+  const palette = theme.tone[tone];
   const layout: ViewStyle = {
     alignSelf: "flex-start",
     flexDirection: "row",
@@ -34,7 +35,7 @@ export function Pill({
     gap: 5,
     paddingHorizontal: 8,
     paddingVertical: 3,
-    borderRadius: soft.radii.pill,
+    borderRadius: theme.radii.pill,
     backgroundColor: variant === "tint" ? palette.tint : "transparent",
     borderWidth: variant === "outline" ? 1 : 0,
     borderColor: palette.fg,
@@ -45,7 +46,7 @@ export function Pill({
       {leadingIcon && <SoftIcon name={leadingIcon} size={11} color={palette.fg} strokeWidth={2} />}
       <Text
         style={{
-          fontFamily: soft.font.family,
+          fontFamily: theme.font.family,
           color: palette.fg,
           fontSize: 12,
           fontWeight: "600",

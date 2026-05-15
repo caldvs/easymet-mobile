@@ -1,5 +1,5 @@
 import { Text, View } from "react-native";
-import { soft, type StatusKind } from "./tokens";
+import { useSoftTheme, type StatusKind } from "./tokens";
 
 // Tonal status pill from image 2 — white surface, coloured icon tile + label.
 // The icon tile is a small rounded square filled in the status hue, with a
@@ -23,7 +23,8 @@ export function StatusPill({
   /** Override the default label text. */
   label?: string;
 }) {
-  const tone = soft.status[status];
+  const theme = useSoftTheme();
+  const tone = theme.status[status];
   const cfg = CONFIG[status];
 
   return (
@@ -31,15 +32,15 @@ export function StatusPill({
       style={[
         {
           alignSelf: "flex-start",
-          backgroundColor: soft.surface,
-          borderRadius: soft.radii.pill,
+          backgroundColor: theme.surface,
+          borderRadius: theme.radii.pill,
           paddingHorizontal: 12,
           paddingVertical: 8,
           flexDirection: "row",
           alignItems: "center",
           gap: 8,
         },
-        soft.shadow.pill,
+        theme.shadow.pill,
       ]}
     >
       <View
@@ -55,7 +56,7 @@ export function StatusPill({
         <Text
           style={{
             color: "#FFFFFF",
-            fontFamily: soft.font.family,
+            fontFamily: theme.font.family,
             fontSize: 13,
             fontWeight: "700",
             lineHeight: 15,
@@ -67,7 +68,7 @@ export function StatusPill({
       <Text
         style={{
           color: tone.fg,
-          fontFamily: soft.font.family,
+          fontFamily: theme.font.family,
           fontSize: 17,
           fontWeight: "600",
           letterSpacing: -0.2,

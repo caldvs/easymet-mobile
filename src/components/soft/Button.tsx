@@ -1,7 +1,7 @@
 import { LinearGradient } from "expo-linear-gradient";
 import { Pressable, Text, View, type ViewStyle } from "react-native";
 import { minTouch, pressFeedback } from "./interaction";
-import { soft, type GradientKind, type Tone } from "./tokens";
+import { useSoftTheme, type GradientKind, type Tone } from "./tokens";
 
 // The universal button — the most-reached-for atom. Three visual variants
 // (`solid` / `soft` / `outline` / `ghost`), three sizes, plus an `gradient`
@@ -51,8 +51,9 @@ export function Button({
   fullWidth,
   style,
 }: Props) {
+  const theme = useSoftTheme();
   const s = SIZES[size];
-  const palette = soft.tone[tone];
+  const palette = theme.tone[tone];
 
   // Resolve foreground / background per variant.
   const isSolid = variant === "solid" && !gradient;
@@ -73,14 +74,14 @@ export function Button({
     minHeight: Math.max(s.minH, minTouch),
     paddingHorizontal: s.padH,
     paddingVertical: s.padV,
-    borderRadius: soft.radii.pill,
+    borderRadius: theme.radii.pill,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
     gap: 8,
     alignSelf: fullWidth ? "stretch" : "flex-start",
     opacity: disabled ? 0.4 : 1,
-    ...(isSolid ? { backgroundColor: palette.bg, ...soft.shadow.pill } : null),
+    ...(isSolid ? { backgroundColor: palette.bg, ...theme.shadow.pill } : null),
     ...(isSoft ? { backgroundColor: palette.tint } : null),
     ...(isOutline
       ? { backgroundColor: "transparent", borderWidth: 1.5, borderColor: palette.fg }
@@ -91,7 +92,7 @@ export function Button({
   const labelNode = (
     <Text
       style={{
-        fontFamily: soft.font.family,
+        fontFamily: theme.font.family,
         color: fgColor,
         fontSize: s.font,
         fontWeight: "600",
@@ -103,7 +104,7 @@ export function Button({
   );
 
   if (isGradient) {
-    const colors = soft.gradient[gradient!] as readonly string[];
+    const colors = theme.gradient[gradient!] as readonly string[];
     return (
       <Pressable
         onPress={disabled ? undefined : onPress}
@@ -111,7 +112,7 @@ export function Button({
       >
         <View
           style={{
-            borderRadius: soft.radii.pill,
+            borderRadius: theme.radii.pill,
             shadowColor: colors[0],
             shadowOpacity: 0.4,
             shadowRadius: 14,

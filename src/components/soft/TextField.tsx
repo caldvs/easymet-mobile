@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Pressable, Text, TextInput, View, type TextInputProps } from "react-native";
 import { pressFeedback } from "./interaction";
 import { SoftIcon, type IconName } from "./SoftIcon";
-import { soft } from "./tokens";
+import { useSoftTheme } from "./tokens";
 
 // Labeled text input with helper / error / leading-trailing slots. Built
 // on the same white-pill surface as the rest of the kit. Pass `error` to
@@ -30,6 +30,7 @@ export function TextField({
   secure = false,
   ...inputProps
 }: TextFieldProps) {
+  const theme = useSoftTheme();
   const [focused, setFocused] = useState(false);
   const [reveal, setReveal] = useState(false);
 
@@ -39,15 +40,15 @@ export function TextField({
     : trailingIcon;
   const handleTrailing = showSecureToggle ? () => setReveal((v) => !v) : onTrailingPress;
 
-  const borderColor = error ? soft.tone.danger.fg : focused ? soft.accent : "transparent";
+  const borderColor = error ? theme.tone.danger.fg : focused ? theme.accent : "transparent";
 
   return (
     <View style={{ gap: 6, alignSelf: "stretch" }}>
       {label && (
         <Text
           style={{
-            fontFamily: soft.font.family,
-            color: soft.text,
+            fontFamily: theme.font.family,
+            color: theme.text,
             fontSize: 13,
             fontWeight: "600",
             letterSpacing: -0.1,
@@ -59,8 +60,8 @@ export function TextField({
       <View
         style={[
           {
-            backgroundColor: soft.surface,
-            borderRadius: soft.radii.input,
+            backgroundColor: theme.surface,
+            borderRadius: theme.radii.input,
             paddingHorizontal: 14,
             paddingVertical: 10,
             flexDirection: "row",
@@ -70,10 +71,10 @@ export function TextField({
             borderColor,
             minHeight: 44,
           },
-          soft.shadow.pill,
+          theme.shadow.pill,
         ]}
       >
-        {leadingIcon && <SoftIcon name={leadingIcon} size={16} color={soft.textMuted} />}
+        {leadingIcon && <SoftIcon name={leadingIcon} size={16} color={theme.textMuted} />}
         <TextInput
           {...inputProps}
           onFocus={(e) => {
@@ -85,11 +86,11 @@ export function TextField({
             inputProps.onBlur?.(e);
           }}
           secureTextEntry={secure && !reveal}
-          placeholderTextColor={soft.textFaint}
+          placeholderTextColor={theme.textFaint}
           style={{
             flex: 1,
-            fontFamily: soft.font.family,
-            color: soft.text,
+            fontFamily: theme.font.family,
+            color: theme.text,
             fontSize: 15,
             fontWeight: "500",
             // Strip the default browser focus ring on web — the pill border
@@ -118,15 +119,15 @@ export function TextField({
               ...(handleTrailing ? pressFeedback(state) : null),
             })}
           >
-            <SoftIcon name={actualTrailing} size={16} color={soft.textMuted} />
+            <SoftIcon name={actualTrailing} size={16} color={theme.textMuted} />
           </Pressable>
         )}
       </View>
       {(error || helper) && (
         <Text
           style={{
-            fontFamily: soft.font.family,
-            color: error ? soft.tone.danger.fg : soft.textMuted,
+            fontFamily: theme.font.family,
+            color: error ? theme.tone.danger.fg : theme.textMuted,
             fontSize: 12,
             fontWeight: "500",
           }}

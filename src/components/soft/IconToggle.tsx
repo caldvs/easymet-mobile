@@ -1,6 +1,6 @@
 import { Pressable, Text, View, type TextStyle } from "react-native";
 import { minTouch, pressFeedback } from "./interaction";
-import { soft } from "./tokens";
+import { useSoftTheme } from "./tokens";
 
 // Square rounded toggle — used for B / I / U / alignment buttons inside the
 // toolbar. When `selected` the square lifts to a white raised tile (cf. the
@@ -25,6 +25,7 @@ export function IconToggle({
   // 36 looks right on desktop but is below the iOS/Android minimum touch
   // target. Bump to minTouch (44 on native) when no explicit size is set.
   const resolvedSize = size ?? Math.max(36, minTouch);
+  const theme = useSoftTheme();
   return (
     <Pressable
       onPress={onPress}
@@ -34,10 +35,10 @@ export function IconToggle({
       style={(state) => ({
         width: resolvedSize,
         height: resolvedSize,
-        borderRadius: soft.radii.square,
+        borderRadius: theme.radii.square,
         alignItems: "center",
         justifyContent: "center",
-        ...(selected ? { backgroundColor: soft.surface, ...soft.shadow.raised } : null),
+        ...(selected ? { backgroundColor: theme.surface, ...theme.shadow.raised } : null),
         ...pressFeedback(state),
       })}
     >
@@ -45,9 +46,9 @@ export function IconToggle({
         <Text
           style={[
             {
-              fontFamily: soft.font.family,
+              fontFamily: theme.font.family,
               fontSize: 17,
-              color: soft.text,
+              color: theme.text,
               fontWeight: "600",
             },
             glyphStyle,

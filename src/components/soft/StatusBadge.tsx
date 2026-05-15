@@ -1,5 +1,5 @@
 import { Text, View } from "react-native";
-import { soft } from "./tokens";
+import { useSoftTheme } from "./tokens";
 
 // Tonal live-state badge (image 4): a tint-filled capsule with a leading
 // indicator. Two kinds:
@@ -12,14 +12,15 @@ export function StatusBadge({
   kind: "online" | "progress";
   label: string;
 }) {
-  const tone = soft.status[kind];
+  const theme = useSoftTheme();
+  const tone = theme.status[kind];
 
   return (
     <View
       style={{
         alignSelf: "flex-start",
         backgroundColor: tone.tint,
-        borderRadius: soft.radii.pill,
+        borderRadius: theme.radii.pill,
         paddingHorizontal: 14,
         paddingVertical: 9,
         flexDirection: "row",
@@ -51,7 +52,7 @@ export function StatusBadge({
       )}
       <Text
         style={{
-          fontFamily: soft.font.family,
+          fontFamily: theme.font.family,
           color: tone.fg,
           fontSize: 15,
           fontWeight: "600",

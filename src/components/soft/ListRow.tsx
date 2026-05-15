@@ -2,7 +2,7 @@ import { Children, Fragment, type ReactNode } from "react";
 import { Pressable, Text, View, type ViewStyle } from "react-native";
 import { minTouch, pressFeedback } from "./interaction";
 import { SoftIcon, type IconName } from "./SoftIcon";
-import { soft } from "./tokens";
+import { useSoftTheme } from "./tokens";
 
 // One row in a list. Leading slot (icon / avatar), title + subtitle stack,
 // trailing slot (chevron / value / control). When `onPress` is set it
@@ -29,6 +29,7 @@ export function ListRow({
   /** Defaults to true when `onPress` is set. */
   showChevron?: boolean;
 }) {
+  const theme = useSoftTheme();
   const chev = (showChevron ?? !!onPress) && !trailing;
 
   const content = (
@@ -39,19 +40,19 @@ export function ListRow({
             width: 32,
             height: 32,
             borderRadius: 10,
-            backgroundColor: soft.surfaceInset,
+            backgroundColor: theme.surfaceInset,
             alignItems: "center",
             justifyContent: "center",
           }}
         >
-          <SoftIcon name={leadingIcon} size={16} color={soft.text} />
+          <SoftIcon name={leadingIcon} size={16} color={theme.text} />
         </View>
       ))}
       <View style={{ flex: 1 }}>
         <Text
           style={{
-            fontFamily: soft.font.family,
-            color: soft.text,
+            fontFamily: theme.font.family,
+            color: theme.text,
             fontSize: 15,
             fontWeight: "600",
             letterSpacing: -0.1,
@@ -62,8 +63,8 @@ export function ListRow({
         {subtitle && (
           <Text
             style={{
-              fontFamily: soft.font.family,
-              color: soft.textMuted,
+              fontFamily: theme.font.family,
+              color: theme.textMuted,
               fontSize: 13,
               fontWeight: "500",
               marginTop: 1,
@@ -74,7 +75,7 @@ export function ListRow({
         )}
       </View>
       {trailing}
-      {chev && <SoftIcon name="chevronRight" size={16} color={soft.textFaint} strokeWidth={2} />}
+      {chev && <SoftIcon name="chevronRight" size={16} color={theme.textFaint} strokeWidth={2} />}
     </>
   );
 
@@ -100,17 +101,18 @@ export function ListRow({
 // Container that groups rows into a single white card with hairline
 // separators between them — the iOS "inset grouped" pattern.
 export function ListRowGroup({ children }: { children: ReactNode }) {
+  const theme = useSoftTheme();
   const kids = Children.toArray(children).filter(Boolean);
   return (
     <View
       style={[
         {
-          backgroundColor: soft.surface,
-          borderRadius: soft.radii.card,
+          backgroundColor: theme.surface,
+          borderRadius: theme.radii.card,
           overflow: "hidden",
           alignSelf: "stretch",
         },
-        soft.shadow.pill,
+        theme.shadow.pill,
       ]}
     >
       {kids.map((c, i) => (
@@ -119,7 +121,7 @@ export function ListRowGroup({ children }: { children: ReactNode }) {
             <View
               style={{
                 height: 1,
-                backgroundColor: soft.divider,
+                backgroundColor: theme.divider,
                 marginLeft: 58, // align with title text, leaving the leading icon column clean
               }}
             />
