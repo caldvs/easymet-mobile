@@ -46,9 +46,11 @@ app-example
 playwright-report/
 test-results/
 
-# Reference imagery / large design bundles — kept locally, not pushed.
+# Working files — kept locally, not pushed.
 HIRax*.jpg
 assets/*.zip
+designs/
+docs/
 
 # Swift Package Manager build artefacts (the LiveActivityViews package)
 **/.build/
