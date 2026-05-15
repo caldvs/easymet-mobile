@@ -1,6 +1,6 @@
 import { Pressable, Text, View } from "react-native";
 import { minTouch, pressFeedback } from "./interaction";
-import { soft } from "./tokens";
+import { soft, useSoftTheme } from "./tokens";
 
 // Single radio option. Composed by `RadioGroup` which handles state +
 // keyboard semantics. Selecting one option in the group deselects the rest.

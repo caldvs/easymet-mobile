@@ -1,6 +1,6 @@
 import { Text, View } from "react-native";
 import { Avatar, type AvatarSize } from "./Avatar";
-import { soft } from "./tokens";
+import { soft, useSoftTheme } from "./tokens";
 
 // Stacked overlapping avatars. Truncates at `max` and renders a "+N" tile
 // for the remainder. Useful for "X people are on this thread" / channel

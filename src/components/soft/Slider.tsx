@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { Animated, PanResponder, View } from "react-native";
 import { minTouch } from "./interaction";
-import { soft } from "./tokens";
+import { soft, useSoftTheme } from "./tokens";
 
 // Single-value slider. PanResponder-based so it works on web + native
 // without a third-party library. The thumb is a white circle with the

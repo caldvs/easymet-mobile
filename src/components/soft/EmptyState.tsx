@@ -1,7 +1,7 @@
 import { Text, View } from "react-native";
 import { Button } from "./Button";
 import { SoftIcon, type IconName } from "./SoftIcon";
-import { soft } from "./tokens";
+import { soft, useSoftTheme } from "./tokens";
 
 // "Nothing here" placeholder. Centred icon-in-soft-tile, title, supporting
 // copy, optional CTA. The icon tile uses the inset surface so the empty

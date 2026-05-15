@@ -1,6 +1,6 @@
 import { Image, Text, View, type ViewStyle } from "react-native";
 import { SoftIcon } from "./SoftIcon";
-import { soft } from "./tokens";
+import { soft, useSoftTheme } from "./tokens";
 
 // Standalone avatar. Renders the image when `src` is given, otherwise
 // `initials` (preferred), otherwise a generic person glyph. Sizes follow

@@ -1,7 +1,7 @@
 import { LinearGradient } from "expo-linear-gradient";
 import { Pressable, Text, View, type ViewStyle } from "react-native";
 import { pressFeedback } from "./interaction";
-import { soft, type GradientKind } from "./tokens";
+import { soft, useSoftTheme, type GradientKind } from "./tokens";
 
 // Saturated capsule button — used for AI / primary CTAs (Ask AI, Book a
 // Call). White text, ~120° gradient, glow shadow tinted from the gradient

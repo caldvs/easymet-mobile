@@ -1,6 +1,6 @@
 import { type ReactNode, useState } from "react";
 import { RefreshControl, ScrollView, type ScrollViewProps } from "react-native";
-import { soft } from "./tokens";
+import { soft, useSoftTheme } from "./tokens";
 
 // ScrollView that hosts a kit-themed pull-to-refresh spinner. Wraps the
 // platform RefreshControl with the kit's accent colour, and tracks a

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Pressable, Text, View } from "react-native";
 import { pressFeedback } from "./interaction";
 import { SoftIcon } from "./SoftIcon";
-import { soft } from "./tokens";
+import { soft, useSoftTheme } from "./tokens";
 
 // Inline month-grid date picker. Tap arrows to flip months, tap a day to
 // select. Single-date only (range-picker would compose two of these).

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Platform, Pressable, Text, View } from "react-native";
 import { minTouch, pressFeedback } from "./interaction";
 import { SoftIcon } from "./SoftIcon";
-import { soft } from "./tokens";
+import { soft, useSoftTheme } from "./tokens";
 
 // "30 mins ⇅" pill from image 4. Bold value, muted unit suffix, then a
 // stacked-chevrons control on the right. Uncontrolled by default — pass

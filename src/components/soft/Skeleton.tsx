@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Animated, Easing, View, type DimensionValue, type ViewStyle } from "react-native";
-import { soft } from "./tokens";
+import { soft, useSoftTheme } from "./tokens";
 
 // Loading placeholder. Animates a gentle opacity pulse between the canvas
 // inset and a slightly lighter shade. Use `circle` for avatars, `rect` for

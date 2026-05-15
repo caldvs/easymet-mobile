@@ -4,7 +4,7 @@ import { IconToggle } from "./IconToggle";
 import { pressFeedback } from "./interaction";
 import { SoftMenu, type MenuOption } from "./SoftMenu";
 import { SoftIcon, type IconName } from "./SoftIcon";
-import { soft } from "./tokens";
+import { soft, useSoftTheme } from "./tokens";
 
 // The toolbar chassis from images 1 + 3: a wide soft-shadowed pill that
 // arranges its children into sections separated by short vertical dividers.

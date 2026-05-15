@@ -1,7 +1,7 @@
 import { useState, type ReactNode } from "react";
 import { Pressable, Text, View } from "react-native";
 import { minTouch, pressFeedback } from "./interaction";
-import { soft } from "./tokens";
+import { soft, useSoftTheme } from "./tokens";
 
 // Top-level navigation tabs. Visually different from SegmentedControl —
 // no chassis fill, and the active tab gets an underline + accent label

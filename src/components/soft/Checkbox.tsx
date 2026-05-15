@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Pressable, Text, View, type ViewStyle } from "react-native";
 import { minTouch, pressFeedback } from "./interaction";
 import { SoftIcon } from "./SoftIcon";
-import { soft } from "./tokens";
+import { soft, useSoftTheme } from "./tokens";
 
 // Soft-UI checkbox: 22pt rounded square. Idle = thin border on canvas;
 // checked = accent fill + white tick. Tap target expands to ≥minTouch via
@@ -57,7 +57,10 @@ export function Checkbox({
       })}
     >
       <View style={box}>
-        {value && <SoftIcon name="check" size={14} color="#FFFFFF" strokeWidth={2.5} />}
+        {/* 12pt check inside a 22pt box leaves a clear 1pt border of
+            tint visible around the glyph — more breathing room than
+            the previous 14pt fit. */}
+        {value && <SoftIcon name="check" size={12} color="#FFFFFF" strokeWidth={2.5} />}
       </View>
       {label && (
         <Text

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Pressable, TextInput, View, type DimensionValue } from "react-native";
 import { pressFeedback } from "./interaction";
 import { SoftIcon } from "./SoftIcon";
-import { soft } from "./tokens";
+import { soft, useSoftTheme } from "./tokens";
 
 // Search input from image 4: white pill with placeholder text on the left
 // and an inset-grey circular icon button on the right. Real `TextInput` —

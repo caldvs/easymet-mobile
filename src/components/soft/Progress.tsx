@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Animated, Easing, View } from "react-native";
-import { soft, type Tone } from "./tokens";
+import { soft, useSoftTheme, type Tone } from "./tokens";
 
 // Linear progress bar. Determinate when `value` ∈ [0,1] is supplied;
 // indeterminate (sliding shimmer) when `value === undefined`.

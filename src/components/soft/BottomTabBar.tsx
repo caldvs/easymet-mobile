@@ -2,7 +2,7 @@ import { Pressable, Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { pressFeedback } from "./interaction";
 import { SoftIcon, type IconName } from "./SoftIcon";
-import { soft } from "./tokens";
+import { soft, useSoftTheme } from "./tokens";
 
 // Bottom navigation chrome. White surface flush at the bottom edge,
 // hairline top border, safe-area inset honoured for the home indicator.

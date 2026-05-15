@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Animated, Easing, View } from "react-native";
-import { soft } from "./tokens";
+import { soft, useSoftTheme } from "./tokens";
 
 // Indeterminate loading spinner. SVG-free implementation — uses a single
 // rotating ring with a 75% arc cut out (faked via a notch overlay). Cheap,

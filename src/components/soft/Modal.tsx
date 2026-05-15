@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import { minTouch, pressFeedback, useReduceMotion } from "./interaction";
 import { SoftIcon } from "./SoftIcon";
-import { soft } from "./tokens";
+import { soft, useSoftTheme } from "./tokens";
 
 // Soft-UI overlay. Two presentations:
 //   * `position="center"` — classic dialog, fades in.

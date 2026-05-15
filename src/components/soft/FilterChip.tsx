@@ -1,7 +1,7 @@
 import { Pressable, Text, View } from "react-native";
 import { minTouch, pressFeedback } from "./interaction";
 import { SoftIcon } from "./SoftIcon";
-import { soft } from "./tokens";
+import { soft, useSoftTheme } from "./tokens";
 
 // "Filter · 2 ✕" pill from image 4. Funnel glyph on the left, a count in
 // the accent colour, then a hairline divider and a dismiss affordance.

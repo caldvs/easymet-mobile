@@ -1,6 +1,6 @@
 import { Pressable, Text } from "react-native";
 import { pressFeedback } from "./interaction";
-import { soft } from "./tokens";
+import { soft, useSoftTheme } from "./tokens";
 
 // The "Upload" affordance from image 4 — a transparent pill with a dashed
 // outline. Reads as "drop target / optional / not-yet-filled" in the soft
