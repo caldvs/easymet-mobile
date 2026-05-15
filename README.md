@@ -1,173 +1,225 @@
+<div align="center">
+
 # EasyMet
 
-A companion app for the **Manchester Metrolink** tram network — live departures, journey planning, service alerts, and a step-by-step on-trip view. Built in React Native + Expo, with a hand-rolled soft-UI component library and live data from the [TfGM developer API](https://developer.tfgm.com/).
+#### Manchester Metrolink — without the friction.
 
-> Side project. Real data, real stations (all 99 stops, all 8 corridors), real routing.
+A companion app for the **Manchester Metrolink** tram network. Live departures, journey planning, service alerts, and a step-by-step on-trip view — all in one app, all built around the stations you actually use.
 
----
+<br />
 
-## Highlights
+<img src="docs/screenshots/01-home.png" alt="EasyMet home screen" width="320" />
 
-- **Live departures** for every Metrolink stop, refreshed via the TfGM Metrolinks endpoint.
-- **Journey planner** with single-line routing across the 8 corridors, step-by-step "you are here" tracking, and a share affordance for sending an ETA to a friend.
-- **Service alerts & disruptions** sourced from `/disruptions`, grouped by severity (severe / notice / info) and time horizon (active now / coming up).
-- **Pinned stations** for one-tap access to your daily stops, with grouped iOS-style cards.
-- **Soft-UI design kit** built from scratch — 27 atoms (Button, TextField, SoftCard, SoftModal, SegmentedControl, Stepper, Slider, DatePicker, …) with consistent press feedback, mobile-safe touch targets, and a tone-based colour system.
-- **Storybook** covers every atom plus every app page, so the design system can be browsed independently of the app.
+<br /><br />
+
+</div>
 
 ---
 
-## Screenshots
+### Pin the stations you live by.
 
-| Home (empty state) | Plan a journey | Browse stations |
-| :--: | :--: | :--: |
-| ![Home](docs/screenshots/01-home.png) | ![Plan](docs/screenshots/02-plan.png) | ![Browse](docs/screenshots/03-browse.png) |
+EasyMet remembers your home, your work, the one near your gym — and shows their next departures the moment you open the app. No tabs, no searching. Just the trams you're about to get on.
 
-| Pinned · live departures | Journey · step-by-step | Station detail |
-| :--: | :--: | :--: |
-| ![Pinned](docs/screenshots/04-pinned.png) | ![Journey](docs/screenshots/05-journey.png) | ![Station detail](docs/screenshots/06-station-detail.png) |
+<table align="center">
+<tr>
+<td width="50%" valign="top">
+<img src="docs/screenshots/02-pinned.png" alt="Pinned stations" width="100%" />
+</td>
+<td width="50%" valign="top">
 
-| Network announcements | Empty-state pattern |
-| :--: | :--: |
-| ![Announcements](docs/screenshots/07-announcements.png) | ![Empty state](docs/screenshots/08-empty-state.png) |
+**Live departures, every time you open it**
 
----
+- Pin any of the 99 stations across the network
+- Real-time data from the TfGM Metrolinks endpoint
+- Line-coded indicators · 8 Metrolink corridors
+- Pull-to-refresh, with an accent-coloured spinner that matches the app
 
-## Tech stack
-
-- **React Native 0.81** with **React 19**
-- **Expo SDK 54** (Expo Router, Linking, Image, Haptics, Location, Linear Gradient, Live Activities module)
-- **TypeScript** end-to-end
-- **Storybook for React Vite** running on top of `react-native-web` for the component library
-- **Playwright** + **Vitest** for end-to-end and unit testing
-- **TfGM API** for live data (Metrolinks, disruptions, journey planning)
-- **Cloudflare Pages** for the web build (`npm run deploy`)
+</td>
+</tr>
+</table>
 
 ---
 
-## The soft-UI design system
+### Tell it where you're going. Stay on the rails.
 
-The kit at `src/components/soft/` is the project's most opinionated piece — a pill-heavy aesthetic with white floating surfaces on a pale lavender canvas, low-spread drop shadows, tonal status colours, and saturated gradients reserved for AI / primary CTAs. Three tiers of atoms, each composing the foundation primitives:
+The journey planner finds the single-line route between any two stations, then drops you into a step-by-step view that tracks where you are on the line. Share an ETA with a friend in one tap.
+
+<table align="center">
+<tr>
+<td width="50%" valign="top">
+
+**Routes across the whole network**
+
+- Single-line routing across all 8 Metrolink corridors
+- ETA computed live, with arrival time + minutes-to-go
+- Mid-trip share affordance: sends a friendly "On my way to X, ETA 18:42" message via the OS share sheet
+- A "Next stop" card stays pinned at the top while the ladder scrolls
+
+</td>
+<td width="50%" valign="top">
+<img src="docs/screenshots/04-journey.png" alt="Active journey ladder" width="100%" />
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+<img src="docs/screenshots/03-plan.png" alt="Journey planner" width="100%" />
+</td>
+<td width="50%" valign="top">
+
+**From / To, that's it**
+
+- Pick endpoints from a bottom-sheet search
+- The whole network is browsable inline — every station, every zone, every line
+- "Start journey · 30 min" CTA gives you the full picture before you commit
+
+</td>
+</tr>
+</table>
+
+---
+
+### A station detail page that actually has detail.
+
+<table align="center">
+<tr>
+<td width="50%" valign="top">
+<img src="docs/screenshots/05-station-detail.png" alt="Manchester Airport station detail" width="100%" />
+</td>
+<td width="50%" valign="top">
+
+**Departures, mini-map, and what's wrong today**
+
+- Every line that calls at this stop, colour-coded
+- A miniature map so you remember which Trafford Bar this is
+- Service notices surface inline as a soft accent banner — no need to hunt through a separate alerts page
+
+</td>
+</tr>
+</table>
+
+---
+
+### Service alerts that respect your time.
+
+<table align="center">
+<tr>
+<td width="50%" valign="top">
+
+**Tonal status, not red walls**
+
+- Each disruption tagged by severity: severe · notice · info
+- Dismiss the ones you've read; restore them if you change your mind
+- "Coming up" planned works partitioned from "Active now" — no surprise tomorrow
+
+</td>
+<td width="50%" valign="top">
+<img src="docs/screenshots/07-announcements.png" alt="Announcements feed" width="100%" />
+</td>
+</tr>
+</table>
+
+---
+
+### The whole network, browsable.
+
+<table align="center">
+<tr>
+<td width="50%" valign="top">
+<img src="docs/screenshots/06-browse.png" alt="Browse stations" width="100%" />
+</td>
+<td width="50%" valign="top">
+
+**99 stations, eight corridors, one screen**
+
+- Real-time search across every station name
+- Filter by corridor with a colour-coded chip strip
+- Tap a star to pin; the row stays put while you do it
+
+</td>
+</tr>
+</table>
+
+---
+
+## Built with
+
+<table>
+<tr>
+<td>
+
+**React Native 0.81** · React 19  
+**Expo SDK 54** · Expo Router, Image, Haptics, Location, Linear Gradient, Live Activities  
+**TypeScript** end-to-end  
+**Storybook for React Vite** on top of react-native-web  
+**Playwright** + **Vitest** for tests  
+**Cloudflare Pages** for the web build
+
+</td>
+<td>
+
+Data lives on the **TfGM Developer API** — Metrolinks (live tram positions) and Travel Alerts (disruptions). Station geometry comes from the TfGM stops file, supplemented with Wikipedia for friendlier display names.
+
+The app ships with a hand-rolled **soft-UI component kit** at `src/components/soft/` — 27 atoms, three tiers, shared interaction primitives. See "Design system" below.
+
+</td>
+</tr>
+</table>
+
+---
+
+## Design system
+
+<details>
+<summary><strong>27 atoms across three tiers, plus a few EasyMet-specific gap-fillers.</strong></summary>
 
 | Tier | Atoms |
 | :-- | :-- |
-| Foundation | `SoftPill` · `SoftCard` · `SoftIcon` · `SoftMenu` · interaction primitives (`pressFeedback`, `minTouch`) · tone tokens |
-| Tier 1 (every app needs them) | `Button` · `TextField` · `Switch` · `Checkbox` · `Radio` · `Avatar` · `SoftModal` (center + bottom sheet) · `SegmentedControl` |
-| Tier 2 (async + feedback) | `Banner` · `Toast` (with `ToastProvider`/`useToast` hook) · `Skeleton` · `Spinner` · `Progress` · `EmptyState` · `ListRow` + `ListRowGroup` |
-| Tier 3 (specialised) | `Tabs` · `Accordion` · `AvatarGroup` · `Slider` (PanResponder-based, no third-party dependency) · `DatePicker` (month-grid, single date) |
-| EasyMet-specific gap-fillers | `BottomTabBar` · `Pill` (content pill) · `Refreshable` (themed pull-to-refresh) |
+| Foundation | `SoftPill` · `SoftCard` · `SoftIcon` · `SoftMenu` · `IPhoneFrame` · interaction primitives (`pressFeedback`, `minTouch`) · tone tokens |
+| Tier 1 | `Button` · `TextField` · `Switch` · `Checkbox` · `Radio` · `Avatar` · `SoftModal` · `SegmentedControl` |
+| Tier 2 | `Banner` · `Toast` · `Skeleton` · `Spinner` · `Progress` · `EmptyState` · `ListRow` + `ListRowGroup` |
+| Tier 3 | `Tabs` · `Accordion` · `AvatarGroup` · `Slider` · `DatePicker` |
+| EasyMet gap-fillers | `BottomTabBar` · `Pill` · `Refreshable` |
 
-Every interactive atom uses:
+Shared primitives every atom uses:
+- `pressFeedback({ pressed })` — a subtle scale + opacity dip on any Pressable.
+- `minTouch` (44pt native, 28pt web) — invisible Pressable wrappers around small glyphs so the touch target is always thumb-safe.
+- A semantic tone palette (`accent` / `success` / `warning` / `danger` / `neutral`) rather than ad-hoc colours.
 
-- A shared `pressFeedback({ pressed })` style helper for a subtle scale + opacity dip.
-- `minTouch` (44pt on native, 28pt on web) for hit-target sizing — small visible glyphs get an invisible Pressable wrapper sized to be thumb-safe.
-- Soft tone semantics (`accent` / `success` / `warning` / `danger` / `neutral`) rather than ad-hoc colours.
+Notable atoms:
+- **`Stepper`** renders compact stacked chevrons on web but bumps to two ≥44pt round buttons on native — same component, platform-appropriate layout.
+- **`SoftModal`** consolidates four hand-rolled bottom-sheet implementations into one chassis (~430 LOC removed).
+- **`SoftIcon`** ships 40+ inline-SVG glyphs — no `@expo/vector-icons` asset loading, recolour just works.
 
-A few highlights worth noting:
-
-- **Stepper** renders compact stacked chevrons on web but bumps to two ≥44pt round buttons on native — same component, platform-appropriate layout.
-- **SoftMenu** floats a popover anchored to its trigger, used by `ToolbarDropdown` and the picker sheets.
-- **SoftModal** consolidates four hand-rolled bottom-sheet implementations (StationPicker, DestinationPicker, SwitchStation, TweaksPanel) into one chassis — ~430 LOC removed across the four files.
-
----
-
-## Architecture
-
-```
-app/                       # Expo Router file-based routing
-├── (tabs)/
-│   ├── index.tsx          # Home — pinned stations, departures, network bell
-│   ├── nearby.tsx         # Nearby — sorted by distance, with mini map
-│   ├── plan.tsx           # Journey planner — From/To, route preview
-│   ├── pinned.tsx         # Pinned — full-feature favourites view
-│   └── browse.tsx         # All 99 stations, search + corridor filter
-├── journey.tsx            # Active journey ladder, "you are here" tracking
-├── announcements.tsx      # Disruption feed, dismissable
-└── station/[code].tsx     # Station detail — departures, line strip, map
-
-src/
-├── components/            # App-specific components (DepartureRow, MiniMap, …)
-│   └── soft/              # The soft-UI design system
-├── lib/                   # Domain logic
-│   ├── api.ts             # TfGM API client
-│   ├── journey.ts         # Single-line routing + travel-time estimation
-│   ├── lines.ts           # 8 Metrolink corridors with their colours
-│   ├── stations.ts        # 99 stations, distance / search / lookup
-│   ├── disruptions.ts     # Severity + time-horizon partitioning
-│   └── *Context.tsx       # Tweaks, Demo mode, Favourites, Journey, …
-├── data/                  # Bundled fixtures (stations, demo snapshot)
-└── stories/               # Storybook page-level stories
-```
-
-The Soft-UI kit and the app are deliberately separable — `src/components/soft/` has no imports from the rest of `src/`, so it could be lifted into its own package.
+</details>
 
 ---
 
 ## Running it
 
-### Mobile
-
 ```bash
 npm install
-npm run ios          # or npm run android, npm run start
-```
-
-The default scenario is `live` — real TfGM fetches every 30s. Switch to the bundled `demo` snapshot via the dev `TweaksPanel` if you want offline-friendly data.
-
-### Web
-
-```bash
+npm run ios          # iOS simulator
+npm run android      # Android emulator
 npm run web          # Expo Web dev server
-npm run deploy       # Build + deploy to Cloudflare Pages
-```
-
-### Storybook
-
-```bash
-npm run storybook    # http://localhost:6006
-```
-
-The Storybook surface is divided into two top-level groups:
-
-- **`Pages`** — every app screen wired up with real providers (`FavouritesProvider`, `JourneyProvider`, `DisruptionsProvider`, …), seeded with realistic data. Useful for visual QA without booting the simulator.
-- **`Soft UI`** — every kit atom in isolation, plus four sample-pages (`Sign in`, `Discover`, `Settings`, `Profile`, `EasyMet account`) that compose the kit into full mobile layouts.
-
----
-
-## Testing
-
-```bash
+npm run storybook    # Component library — http://localhost:6006
 npm run test         # Vitest unit tests
-npm run test:e2e     # Playwright against the Expo web build
+npm run test:e2e     # Playwright against the Expo Web build
 ```
-
-- **Unit tests** cover lookup tables, journey routing, disruption grouping, and the favourites context — anywhere the logic could silently rot without a test guarding it.
-- **E2E tests** run against the Expo Web build at port `8081`, simulating an iPhone 14 viewport. Useful for catching layout regressions; not a substitute for real-device QA (haptics, native maps, blur, splash, gestures all behave differently on native).
 
 ---
 
 ## Notable engineering moments
 
-- **Hook-order bug in `JourneyScreen`** — a `useCallback` declared after an early `return null` worked on first render but crashed once the journey arrived asynchronously. Fixed by hoisting all derived values + the callback above the early return; safe defaults handle the no-journey case. Found via a Storybook crash report.
-- **Async-storage race in seeded Storybook stories** — seeding favourites in a `useEffect` raced the `AsyncStorage.getItem` load inside `FavouritesProvider`, which silently overwrote the seed. Fixed by gating the seeder on the context's `loaded` flag.
-- **Vite + Expo native module incompatibility** — `expo-modules-core` imports `TurboModuleRegistry` from `react-native`, which `react-native-web` doesn't expose. Storybook's preview required Vite aliases that stub `expo-modules-core`, `expo-haptics`, `expo-location`, and `expo-linear-gradient` so the design-system stories can render on the web without hitting native bridges.
-- **`@expo/vector-icons` is asset-heavy** for Vite. The soft kit ships its own SVG icon set (`SoftIcon`) with 40+ glyphs drawn as inline paths — no font loading, no asset plugins, and recolour just works.
+- **Hook-order bug in `JourneyScreen`** — a `useCallback` declared after an early `return null` worked on first render but crashed once the journey arrived asynchronously. Fixed by hoisting all derived values + the callback above the early return; safe defaults handle the no-journey case.
+- **Async-storage race in seeded Storybook stories** — seeding favourites in a `useEffect` raced the `AsyncStorage.getItem` load inside `FavouritesProvider`, silently overwriting the seed. Fixed by gating seeders on the context's `loaded` flag.
+- **Vite + Expo native modules** — `expo-modules-core` imports `TurboModuleRegistry` from `react-native`, which `react-native-web` doesn't expose. Storybook needed Vite aliases that stub `expo-modules-core` / `expo-haptics` / `expo-location` / `expo-linear-gradient` so the design-system stories can render on the web.
+- **Asset-heavy icon fonts** — `@expo/vector-icons` requires asset plugins to bundle through Vite. The soft kit's `SoftIcon` ships its own SVG path library so the Storybook surface has no font dependency.
 
 ---
 
-## Roadmap
+<div align="center">
 
-- Dark-mode tokens for the soft kit (light is the only theme today)
-- Native module for the iOS Live Activity (see `modules/journey-activity/`)
-- Push notifications for "tram approaching" + service alerts on selected corridors
-- Test coverage for the soft kit atoms
+Built by [Callum Davies](mailto:dvscllm@gmail.com).  
+Live TfGM data · 99 stations · 8 Metrolink corridors · soft-UI from scratch.
 
----
-
-## Credits
-
-- **Live data**: [TfGM Developer API](https://developer.tfgm.com/) — Metrolinks endpoint, Travel Alerts feed.
-- **Station geometry**: TfGM stops file, supplemented with Wikipedia (`scripts/stations-wikipedia.json`) for friendlier display names.
-- **Design language**: Soft-UI exploration shaped from a community design-system inspiration, ported to React Native + Expo.
-
-Built by [Callum Davies](mailto:dvscllm@gmail.com). The complete component library is browseable in Storybook — see `docs/screenshots/` for thumbnails of every screen.
+</div>
